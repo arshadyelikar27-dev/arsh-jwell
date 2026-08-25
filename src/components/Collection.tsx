@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Eye, MessageSquare, ArrowUpRight } from 'lucide-react';
+import { MessageSquare, ArrowUpRight } from 'lucide-react';
 import { SITE_CONFIG, ProductItem } from '../config/siteContent';
 
 interface CollectionProps {
@@ -8,42 +8,12 @@ interface CollectionProps {
 }
 
 export const Collection: React.FC<CollectionProps> = ({ onSelectProduct }) => {
-  const [activeFilter, setActiveFilter] = useState<string>('All');
 
-  const categories = [
-    'All',
-    'Solitaires & Diamonds',
-    'Heritage Gold',
-    'Haute Joaillerie',
-    'Daily Luxury'
-  ];
+  const filteredProducts = SITE_CONFIG.products;
 
-  const filteredProducts = activeFilter === 'All'
-    ? SITE_CONFIG.products
-    : SITE_CONFIG.products.filter(p => p.category === activeFilter);
-
-  // Dynamic asymmetric grid span classes based on item index
-  const getCardClasses = (index: number) => {
-    switch (index % 8) {
-      case 0:
-        return "md:col-span-6 lg:col-span-5 md:row-span-2 min-h-[420px] sm:min-h-[500px] lg:min-h-[580px]";
-      case 1:
-        return "md:col-span-6 lg:col-span-7 min-h-[340px] sm:min-h-[380px] lg:min-h-[460px]";
-      case 2:
-        return "md:col-span-6 lg:col-span-4 min-h-[340px] sm:min-h-[380px]";
-      case 3:
-        return "md:col-span-6 lg:col-span-3 min-h-[340px] sm:min-h-[380px]";
-      case 4:
-        return "md:col-span-6 lg:col-span-4 min-h-[380px] sm:min-h-[480px]";
-      case 5:
-        return "md:col-span-6 lg:col-span-4 min-h-[380px] sm:min-h-[480px]";
-      case 6:
-        return "md:col-span-6 lg:col-span-4 min-h-[380px] sm:min-h-[480px]";
-      case 7:
-        return "md:col-span-12 lg:col-span-12 min-h-[380px] sm:min-h-[420px] lg:min-h-[500px]";
-      default:
-        return "md:col-span-6 lg:col-span-4 min-h-[360px] sm:min-h-[400px]";
-    }
+  // Uniform grid card classes for clean, balanced product showcase
+  const getCardClasses = (_index?: number) => {
+    return "col-span-1 min-h-[340px] sm:min-h-[380px] h-[340px] sm:h-[380px]";
   };
 
   const handleWhatsAppQuick = (e: React.MouseEvent, product: ProductItem) => {
@@ -80,25 +50,8 @@ export const Collection: React.FC<CollectionProps> = ({ onSelectProduct }) => {
           </p>
         </div>
 
-        {/* Category Filter Buttons */}
-        <div className="flex items-center space-x-2 sm:space-x-4 overflow-x-auto pb-4 mb-8 sm:mb-10 scrollbar-none -mx-4 px-4 sm:mx-0 sm:px-0">
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setActiveFilter(cat)}
-              className={`whitespace-nowrap px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-[10px] sm:text-xs uppercase tracking-[0.2em] transition-all duration-300 ${
-                activeFilter === cat
-                  ? 'bg-gold text-charcoal-950 font-medium shadow-[0_4px_14px_rgba(201,162,75,0.25)]'
-                  : 'text-ivory-muted hover:text-gold border border-charcoal-700 hover:border-gold/40'
-              }`}
-            >
-              {cat}
-            </button>
-          ))}
-        </div>
-
-        {/* Asymmetric Editorial Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-4 sm:gap-6 lg:gap-8">
+        {/* Uniform Luxury Product Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-8">
           <AnimatePresence mode="popLayout">
             {filteredProducts.map((product, index) => {
               const spanClass = getCardClasses(index);
@@ -136,14 +89,6 @@ export const Collection: React.FC<CollectionProps> = ({ onSelectProduct }) => {
                     >
                       <MessageSquare className="w-3.5 h-3.5" />
                     </button>
-                    <button
-                      onClick={() => onSelectProduct(product)}
-                      className="p-2.5 rounded-full bg-gold text-charcoal-950 hover:bg-gold-light transition-colors shadow-lg active:scale-95"
-                      title="View Details"
-                      aria-label="View Details"
-                    >
-                      <Eye className="w-3.5 h-3.5" />
-                    </button>
                   </div>
 
                   {/* Bottom Information Card */}
@@ -153,19 +98,14 @@ export const Collection: React.FC<CollectionProps> = ({ onSelectProduct }) => {
                     </div>
 
                     <h3 className="font-serif text-lg sm:text-2xl lg:text-3xl text-ivory-100 font-light group-hover:text-gold-light transition-colors duration-300 flex items-center justify-between">
-                      <span>{product.name}</span>
-                      <ArrowUpRight className="w-4 h-4 text-gold/60 opacity-80 sm:opacity-0 sm:group-hover:opacity-100 sm:group-hover:translate-x-1 sm:group-hover:-translate-y-1 transition-all duration-300" />
+                      <span className="truncate pr-3">{product.name}</span>
+                      <ArrowUpRight className="w-4 h-4 text-gold/60 opacity-80 sm:opacity-0 sm:group-hover:opacity-100 sm:group-hover:translate-x-1 sm:group-hover:-translate-y-1 transition-all duration-300 flex-shrink-0" />
                     </h3>
 
                     {/* One-Line Description */}
-                    <p className="font-sans text-[11px] sm:text-xs text-ivory-200/80 mt-1.5 line-clamp-2 font-light leading-relaxed">
+                    <p className="font-sans text-[11px] sm:text-xs text-ivory-200/80 mt-1.5 truncate font-light leading-relaxed">
                       {product.description}
                     </p>
-
-                    <div className="mt-3 sm:mt-4 pt-2.5 sm:pt-3 border-t border-charcoal-700/60 flex items-center justify-between text-[10px] sm:text-[11px] text-ivory-muted tracking-wider uppercase">
-                      <span>{product.metal.split(' ')[0]} {product.metal.split(' ')[1]}</span>
-                      <span className="text-gold font-serif italic">{product.tagline.split(' ')[0]}</span>
-                    </div>
                   </div>
 
                 </motion.div>
@@ -178,3 +118,4 @@ export const Collection: React.FC<CollectionProps> = ({ onSelectProduct }) => {
     </section>
   );
 };
+

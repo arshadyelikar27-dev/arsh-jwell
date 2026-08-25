@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowUp, Instagram, MessageSquare, Facebook } from 'lucide-react';
+import { ArrowUp, MessageSquare } from 'lucide-react';
 import { SITE_CONFIG } from '../config/siteContent';
 
 export const Footer: React.FC = () => {
@@ -13,7 +13,7 @@ export const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="relative bg-charcoal-950 text-ivory-100 pt-24 pb-12 border-t border-gold/15 overflow-hidden">
+    <footer id="footer" className="relative bg-charcoal-950 text-ivory-100 pt-24 pb-12 border-t border-gold/15 overflow-hidden">
       
       {/* Background Subtle Ambience */}
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-gold/[0.015] rounded-full blur-[140px] pointer-events-none" />
@@ -37,42 +37,10 @@ export const Footer: React.FC = () => {
             </p>
           </div>
 
-          {/* Social Links with Rounded Radius */}
-          <div className="flex items-center space-x-3">
-            <a
-              href="https://instagram.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-3 bg-charcoal-900 border border-charcoal-700 hover:border-gold hover:text-gold text-ivory-muted transition-all duration-300 rounded-full"
-              title="Instagram"
-              aria-label="Instagram"
-            >
-              <Instagram className="w-4 h-4" />
-            </a>
-            <a
-              href="https://facebook.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-3 bg-charcoal-900 border border-charcoal-700 hover:border-gold hover:text-gold text-ivory-muted transition-all duration-300 rounded-full"
-              title="Facebook"
-              aria-label="Facebook"
-            >
-              <Facebook className="w-4 h-4" />
-            </a>
-            <button
-              onClick={handleWhatsApp}
-              className="p-3 bg-charcoal-900 border border-charcoal-700 hover:border-gold hover:text-gold text-ivory-muted transition-all duration-300 rounded-full"
-              title="WhatsApp"
-              aria-label="WhatsApp"
-            >
-              <MessageSquare className="w-4 h-4" />
-            </button>
-          </div>
-
         </div>
 
-        {/* Middle Tier: Navigation Links, Details & Instagram Tag */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-10 py-16 border-b border-charcoal-800 text-xs text-ivory-muted">
+        {/* Middle Tier: Navigation Links & Details */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 py-16 border-b border-charcoal-800 text-xs text-ivory-muted">
           
           {/* Column 1: Haute Joaillerie Nav */}
           <div>
@@ -84,24 +52,10 @@ export const Footer: React.FC = () => {
               <li><a href="#collection" className="hover:text-gold transition-colors">Temple Kundan & Polki</a></li>
               <li><a href="#collection" className="hover:text-gold transition-colors">Bridal Mangalsutras</a></li>
               <li><a href="#collection" className="hover:text-gold transition-colors">Emerald & Gemstone Heirlooms</a></li>
-              <li><a href="#spotlight" className="hover:text-gold transition-colors">Signature Sovereign Collar</a></li>
             </ul>
           </div>
 
-          {/* Column 2: Atelier Heritage */}
-          <div>
-            <h4 className="font-serif text-base text-ivory-100 tracking-wider uppercase mb-4">
-              Atelier & Services
-            </h4>
-            <ul className="space-y-2.5 font-light">
-              <li><a href="#craftsmanship" className="hover:text-gold transition-colors">Bespoke Custom Commissions</a></li>
-              <li><a href="#craftsmanship" className="hover:text-gold transition-colors">GIA & IGI Diamond Grading</a></li>
-              <li><a href="#craftsmanship" className="hover:text-gold transition-colors">BIS 916 Gold Hallmarking</a></li>
-              <li><a href="#craftsmanship" className="hover:text-gold transition-colors">Heirloom Restoration</a></li>
-            </ul>
-          </div>
-
-          {/* Column 3: Contact & Instagram */}
+          {/* Column 2: Contact & Direct Inquiries */}
           <div>
             <h4 className="font-serif text-base text-ivory-100 tracking-wider uppercase mb-4">
               Direct Inquiries
@@ -114,7 +68,7 @@ export const Footer: React.FC = () => {
             </div>
           </div>
 
-          {/* Column 4: Private Atelier Concierge Card */}
+          {/* Column 3: Private Atelier Concierge Card */}
           <div className="p-6 bg-charcoal-900 border border-charcoal-800 rounded-2xl flex flex-col justify-between">
             <div>
               <div className="flex items-center space-x-2 text-gold text-[10px] tracking-widest uppercase mb-2">

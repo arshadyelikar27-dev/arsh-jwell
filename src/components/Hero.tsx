@@ -13,29 +13,26 @@ export const Hero: React.FC = () => {
   return (
     <section id="hero" className="relative w-full min-h-screen flex items-center justify-center overflow-hidden">
       
-      {/* Full-bleed Hero Video Background */}
-      <div className="absolute inset-0 w-full h-full z-0 overflow-hidden">
+      {/* Minimal Dark Luxury Background & Ambient Glow */}
+      <div className="absolute inset-0 w-full h-full z-0 overflow-hidden bg-charcoal-950">
+        {/* Background Video */}
         <video
           autoPlay
-          muted
           loop
+          muted
           playsInline
-          poster="/images/hero-poster.jpg"
-          className="w-full h-full object-cover scale-105 filter brightness-[0.8] contrast-[1.05]"
+          className="absolute inset-0 w-full h-full object-cover opacity-60"
         >
-          <source src="/videos/hero-video.mp4" type="video/mp4" />
-          {/* Fallback image if video cannot play */}
-          <img
-            src="/images/hero-poster.jpg"
-            alt="Haute Joaillerie Atelier"
-            className="w-full h-full object-cover"
-          />
+          <source src="/Jwell.mp4" type="video/mp4" />
         </video>
 
-        {/* Dark Gradient Overlays for Text Legibility & Mood */}
-        <div className="absolute inset-0 bg-gradient-to-t from-charcoal-900 via-charcoal-900/40 to-black/60 pointer-events-none" />
-        <div className="absolute inset-0 bg-radial-[circle_at_center,_transparent_0%,_rgba(11,11,12,0.6)_100%] pointer-events-none" />
-        <div className="absolute inset-0 bg-black/20 pointer-events-none" />
+        {/* Ambient Gold Radial Lighting Effects */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] sm:w-[1000px] h-[500px] bg-gold/[0.08] rounded-full blur-[180px] pointer-events-none" />
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[400px] h-[250px] bg-gold-light/[0.05] rounded-full blur-[140px] pointer-events-none" />
+
+        {/* Subtle Luxury Mesh Overlays & Hairlines */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-charcoal-900/60 to-charcoal-950 pointer-events-none" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-transparent via-charcoal-950/80 to-charcoal-950 pointer-events-none" />
       </div>
 
       {/* Hero Typography & Content */}

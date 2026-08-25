@@ -21,9 +21,9 @@ export const Navbar: React.FC = () => {
   }, []);
 
   const navLinks = [
+    { name: 'Home', href: '#hero' },
     { name: 'Collection', href: '#collection' },
-    { name: 'Craftsmanship', href: '#craftsmanship' },
-    { name: 'Spotlight', href: '#spotlight' },
+    { name: 'Contact', href: '#footer' },
   ];
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -91,12 +91,12 @@ export const Navbar: React.FC = () => {
         <div className="hidden sm:flex items-center space-x-3">
           <button
             onClick={handleWhatsAppDirect}
-            className="inline-flex items-center space-x-2 bg-gold hover:bg-gold-light text-charcoal-950 px-5 py-2.5 rounded-full text-xs font-medium uppercase tracking-[0.2em] transition-all duration-300 shadow-[0_4px_14px_rgba(201,162,75,0.25)]"
-            title="Message Concierge on WhatsApp"
-            aria-label="WhatsApp Concierge"
+            className="inline-flex items-center space-x-2 bg-gold hover:bg-gold-light text-charcoal-950 px-5 py-2 rounded-full text-xs font-medium uppercase tracking-[0.2em] transition-all duration-300 shadow-[0_4px_14px_rgba(201,162,75,0.25)]"
+            title="Inquire on WhatsApp"
+            aria-label="Inquire"
           >
             <MessageSquare className="w-3.5 h-3.5" />
-            <span>Concierge</span>
+            <span>Inquire</span>
           </button>
         </div>
 
@@ -105,7 +105,7 @@ export const Navbar: React.FC = () => {
           <button
             onClick={handleWhatsAppDirect}
             className="p-2.5 rounded-full border border-gold/30 text-gold hover:bg-gold/10 transition-colors"
-            aria-label="WhatsApp Concierge"
+            aria-label="Inquire"
           >
             <MessageSquare className="w-4 h-4" />
           </button>
@@ -148,7 +148,7 @@ export const Navbar: React.FC = () => {
                   className="w-full bg-gold hover:bg-gold-light text-charcoal-950 py-3.5 rounded-full text-center text-xs tracking-[0.2em] uppercase font-medium flex items-center justify-center space-x-2 transition-all duration-300 shadow-[0_4px_14px_rgba(201,162,75,0.25)]"
                 >
                   <MessageSquare className="w-4 h-4" />
-                  <span>WhatsApp Concierge</span>
+                  <span>Inquire</span>
                 </button>
               </div>
             </nav>

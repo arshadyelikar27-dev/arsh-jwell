@@ -3,10 +3,7 @@ import { CustomCursor } from './components/CustomCursor';
 import { Preloader } from './components/Preloader';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
-import { BrandStatement } from './components/BrandStatement';
 import { Collection } from './components/Collection';
-import { Craftsmanship } from './components/Craftsmanship';
-import { SignatureSpotlight } from './components/SignatureSpotlight';
 import { Footer } from './components/Footer';
 import { ProductModal } from './components/ProductModal';
 import { NoiseOverlay } from './components/NoiseOverlay';
@@ -37,19 +34,10 @@ export const App: React.FC = () => {
       {/* 1. Full-Bleed Video Hero Section */}
       <Hero />
 
-      {/* 2. Editorial Brand Statement */}
-      <BrandStatement />
-
-      {/* 3. Asymmetric Editorial Collection Showroom */}
+      {/* 2. Asymmetric Editorial Collection Showroom */}
       <Collection onSelectProduct={(product) => setSelectedProduct(product)} />
 
-      {/* 4. Heritage Craftsmanship & Animated Stat Counters */}
-      <Craftsmanship />
-
-      {/* 5. Signature Piece Double-Page Spread Spotlight */}
-      <SignatureSpotlight />
-
-      {/* 6. Minimal Dark Luxury Footer */}
+      {/* 3. Minimal Dark Luxury Footer */}
       <Footer />
 
       {/* Modals & Dialogs */}

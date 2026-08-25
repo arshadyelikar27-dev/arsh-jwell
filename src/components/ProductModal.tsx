@@ -81,29 +81,7 @@ export const ProductModal: React.FC<ProductModalProps> = ({
                 {product.description}
               </p>
 
-              {/* Specifications List */}
-              <div className="space-y-2 mb-6 sm:mb-8 bg-charcoal-850 p-3.5 sm:p-4 rounded-xl border border-charcoal-700/60">
-                <div className="flex items-center justify-between text-[11px] sm:text-xs py-1 border-b border-charcoal-700/40">
-                  <span className="text-ivory-muted uppercase tracking-wider text-[10px] sm:text-[11px] flex items-center gap-1.5">
-                    <Layers className="w-3 h-3 text-gold/80" /> Metal / Alloy
-                  </span>
-                  <span className="text-ivory-100 font-medium">{product.metal}</span>
-                </div>
-                <div className="flex items-center justify-between text-[11px] sm:text-xs py-1 border-b border-charcoal-700/40">
-                  <span className="text-ivory-muted uppercase tracking-wider text-[10px] sm:text-[11px] flex items-center gap-1.5">
-                    <Gem className="w-3 h-3 text-gold/80" /> Gemstone
-                  </span>
-                  <span className="text-ivory-100 font-medium">{product.gemstone}</span>
-                </div>
-                {product.specs.map((spec, index) => (
-                  <div key={index} className="flex items-center justify-between text-[11px] sm:text-xs py-1 border-b border-charcoal-700/40 last:border-0">
-                    <span className="text-ivory-muted uppercase tracking-wider text-[10px] sm:text-[11px] flex items-center gap-1.5">
-                      <ShieldCheck className="w-3 h-3 text-gold/80" /> {spec.label}
-                    </span>
-                    <span className="text-ivory-100 font-medium">{spec.value}</span>
-                  </div>
-                ))}
-              </div>
+              {/* Specifications removed as requested */}
             </div>
 
             {/* Actions */}
