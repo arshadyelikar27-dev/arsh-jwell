@@ -1,0 +1,155 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-charcoal-900: #0B0B0C;
+    --color-charcoal-800: #161619;
+    --color-ivory-100: #F5F0E6;
+    --color-gold: #C9A24B;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background-color: #0B0B0C;
+    color: #F5F0E6;
+  }
+
+  body {
+    background-color: #0B0B0C;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Custom selection */
+  ::selection {
+    background-color: #C9A24B;
+    color: #0B0B0C;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0B0B0C;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #2A2A30;
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #C9A24B;
+  }
+}
+
+/* Lenis smooth scrolling rules */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* Gold Gradient & Text Utilities */
+.gold-gradient-text {
+  background: linear-gradient(135deg, #F5F0E6 0%, #EAD79B 30%, #C9A24B 60%, #DFC07A 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold-gradient-subtle {
+  background: linear-gradient(180deg, rgba(201, 162, 75, 0.15) 0%, rgba(201, 162, 75, 0) 100%);
+}
+
+.gold-border-glow {
+  border: 1px solid rgba(201, 162, 75, 0.25);
+  box-shadow: 0 0 25px -5px rgba(201, 162, 75, 0.08);
+}
+
+.gold-border-glow:hover {
+  border-color: rgba(201, 162, 75, 0.5);
+  box-shadow: 0 0 35px 0px rgba(201, 162, 75, 0.18);
+}
+
+/* Shimmer Sweep Animation */
+.shimmer-sweep-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer-sweep-wrapper::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -100%;
+  width: 50%;
+  height: 200%;
+  background: linear-gradient(
+    60deg,
+    transparent 0%,
+    rgba(224, 195, 123, 0.0) 30%,
+    rgba(224, 195, 123, 0.35) 50%,
+    rgba(224, 195, 123, 0.0) 70%,
+    transparent 100%
+  );
+  transform: rotate(25deg);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.shimmer-sweep-wrapper:hover::after {
+  opacity: 1;
+  animation: shimmerSweep 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes shimmerSweep {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 200%;
+  }
+}
+
+/* Noise overlay for tactile film aesthetic */
+.bg-noise {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.035'/%3E%3C/svg%3E");
+}
+
+/* Hide default cursor on desktop when custom cursor is active */
+@media (pointer: fine) {
+  body.custom-cursor-active,
+  body.custom-cursor-active a,
+  body.custom-cursor-active button,
+  body.custom-cursor-active [role="button"] {
+    cursor: none !important;
+  }
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
