@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { CustomCursor } from './components/CustomCursor';
-import { Preloader } from './components/Preloader';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { Collection } from './components/Collection';
@@ -14,7 +13,6 @@ export const App: React.FC = () => {
   // Initialize Lenis smooth scroll
   useSmoothScroll();
 
-  const [, setPreloaderFinished] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState<ProductItem | null>(null);
 
   return (
@@ -25,8 +23,6 @@ export const App: React.FC = () => {
       {/* Interactive Diamond & Gold Trail Cursor */}
       <CustomCursor />
 
-      {/* Luxury First-Visit Entrance Preloader */}
-      <Preloader onComplete={() => setPreloaderFinished(true)} />
 
       {/* Fixed Sticky Navigation */}
       <Navbar />

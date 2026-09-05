@@ -26,9 +26,10 @@ export const Hero: React.FC = () => {
           <source src="/Jwell.mp4" type="video/mp4" />
         </video>
 
-        {/* Ambient Gold Radial Lighting Effects */}
+        {/* Ambient Gold + Royal Purple Radial Lighting */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] sm:w-[1000px] h-[500px] bg-gold/[0.08] rounded-full blur-[180px] pointer-events-none" />
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[400px] h-[250px] bg-gold-light/[0.05] rounded-full blur-[140px] pointer-events-none" />
+        <div className="absolute top-1/4 left-1/4 -translate-x-1/2 w-[350px] h-[350px] bg-royal/[0.07] rounded-full blur-[160px] pointer-events-none" />
+        <div className="absolute top-1/3 right-1/4 translate-x-1/2 w-[280px] h-[280px] bg-royal-light/[0.04] rounded-full blur-[140px] pointer-events-none" />
 
         {/* Subtle Luxury Mesh Overlays & Hairlines */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-charcoal-900/60 to-charcoal-950 pointer-events-none" />

@@ -8,6 +8,10 @@
     --color-charcoal-800: #161619;
     --color-ivory-100: #F5F0E6;
     --color-gold: #C9A24B;
+    /* Logo Royal Purple */
+    --color-royal: #6B2D8B;
+    --color-royal-light: #9B59C4;
+    --color-royal-glow: rgba(107, 45, 139, 0.20);
   }
 
   html {
@@ -24,10 +28,10 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
-  /* Custom selection */
+  /* Custom selection — Royal Purple */
   ::selection {
-    background-color: #C9A24B;
-    color: #0B0B0C;
+    background-color: #6B2D8B;
+    color: #F5F0E6;
   }
 
   /* Custom scrollbar */
@@ -71,6 +75,7 @@ html.lenis, html.lenis body {
 .gold-gradient-text {
   background: linear-gradient(135deg, #F5F0E6 0%, #EAD79B 30%, #C9A24B 60%, #DFC07A 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -86,6 +91,35 @@ html.lenis, html.lenis body {
 .gold-border-glow:hover {
   border-color: rgba(201, 162, 75, 0.5);
   box-shadow: 0 0 35px 0px rgba(201, 162, 75, 0.18);
+}
+
+/* Royal Purple Utilities — Logo brand integration */
+.royal-gradient-text {
+  background: linear-gradient(135deg, #9B59C4 0%, #6B2D8B 50%, #4A1D63 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.royal-glow {
+  box-shadow: 0 0 40px -8px rgba(107, 45, 139, 0.35);
+}
+
+.royal-border-glow {
+  border: 1px solid rgba(107, 45, 139, 0.30);
+  box-shadow: 0 0 25px -5px rgba(107, 45, 139, 0.12);
+}
+
+.royal-border-glow:hover {
+  border-color: rgba(107, 45, 139, 0.55);
+  box-shadow: 0 0 40px 0px rgba(107, 45, 139, 0.22);
+}
+
+/* Gold + Purple dual-tone ambient background */
+.dual-tone-glow {
+  background:
+    radial-gradient(ellipse at 30% 50%, rgba(201, 162, 75, 0.06) 0%, transparent 60%),
+    radial-gradient(ellipse at 70% 50%, rgba(107, 45, 139, 0.06) 0%, transparent 60%);
 }
 
 /* Shimmer Sweep Animation */

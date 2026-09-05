@@ -55,21 +55,13 @@ export const Navbar: React.FC = () => {
         <a
           href="#hero"
           onClick={(e) => handleNavClick(e, '#hero')}
-          className="group flex items-center space-x-3 focus:outline-none"
+          className="group flex items-center focus:outline-none"
         >
-          {/* Subtle gold diamond logo glyph */}
-          <div className="relative w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center border border-gold/60 rotate-45 group-hover:border-gold group-hover:scale-105 transition-all duration-300">
-            <div className="w-1.5 h-1.5 bg-gold" />
-          </div>
-          
-          <div className="flex flex-col">
-            <span className="font-serif text-lg sm:text-2xl tracking-[0.18em] uppercase text-ivory-100 font-light group-hover:text-gold-light transition-colors duration-300">
-              {SITE_CONFIG.brandName}
-            </span>
-            <span className="font-sans text-[8px] sm:text-[9px] tracking-[0.3em] uppercase text-gold/80 font-normal">
-              Haute Joaillerie
-            </span>
-          </div>
+          <img
+            src="/images/vb_malgeekar_logo.png"
+            alt="व्ही बी माकणीकर"
+            className="h-11 sm:h-[52px] w-auto object-contain transition-all duration-300 group-hover:scale-105"
+          />
         </a>
 
         {/* Desktop Nav Links */}
@@ -91,7 +83,7 @@ export const Navbar: React.FC = () => {
         <div className="hidden sm:flex items-center space-x-3">
           <button
             onClick={handleWhatsAppDirect}
-            className="inline-flex items-center space-x-2 bg-gold hover:bg-gold-light text-charcoal-950 px-5 py-2 rounded-full text-xs font-medium uppercase tracking-[0.2em] transition-all duration-300 shadow-[0_4px_14px_rgba(201,162,75,0.25)]"
+            className="inline-flex items-center space-x-2 bg-royal hover:bg-royal-light text-ivory-50 px-5 py-2 rounded-full text-xs font-medium uppercase tracking-[0.2em] transition-all duration-300 shadow-[0_4px_14px_rgba(107,45,139,0.35)]"
             title="Inquire on WhatsApp"
             aria-label="Inquire"
           >
@@ -104,7 +96,7 @@ export const Navbar: React.FC = () => {
         <div className="flex items-center space-x-3 md:hidden">
           <button
             onClick={handleWhatsAppDirect}
-            className="p-2.5 rounded-full border border-gold/30 text-gold hover:bg-gold/10 transition-colors"
+            className="p-2.5 rounded-full border border-royal/40 text-royal-light hover:bg-royal/20 transition-colors"
             aria-label="Inquire"
           >
             <MessageSquare className="w-4 h-4" />
@@ -145,7 +137,7 @@ export const Navbar: React.FC = () => {
               <div className="pt-6 border-t border-charcoal-700 flex flex-col gap-3">
                 <button
                   onClick={() => { setMobileMenuOpen(false); handleWhatsAppDirect(); }}
-                  className="w-full bg-gold hover:bg-gold-light text-charcoal-950 py-3.5 rounded-full text-center text-xs tracking-[0.2em] uppercase font-medium flex items-center justify-center space-x-2 transition-all duration-300 shadow-[0_4px_14px_rgba(201,162,75,0.25)]"
+                  className="w-full bg-royal hover:bg-royal-light text-ivory-50 py-3.5 rounded-full text-center text-xs tracking-[0.2em] uppercase font-medium flex items-center justify-center space-x-2 transition-all duration-300 shadow-[0_4px_14px_rgba(107,45,139,0.35)]"
                 >
                   <MessageSquare className="w-4 h-4" />
                   <span>Inquire</span>

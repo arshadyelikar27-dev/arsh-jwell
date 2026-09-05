@@ -15,8 +15,9 @@ export const Footer: React.FC = () => {
   return (
     <footer id="footer" className="relative bg-charcoal-950 text-ivory-100 pt-24 pb-12 border-t border-gold/15 overflow-hidden">
       
-      {/* Background Subtle Ambience */}
+      {/* Background Subtle Ambience — gold + royal purple */}
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-gold/[0.015] rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-royal/[0.04] rounded-full blur-[150px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
         
@@ -24,16 +25,15 @@ export const Footer: React.FC = () => {
         <div className="flex flex-col md:flex-row items-center justify-between pb-16 border-b border-charcoal-800 gap-8">
           
           <div className="flex flex-col items-center md:items-start text-center md:text-left">
-            <div className="flex items-center space-x-3 mb-2">
-              <div className="w-6 h-6 border border-gold/60 rotate-45 flex items-center justify-center">
-                <div className="w-1.5 h-1.5 bg-gold" />
-              </div>
-              <span className="font-serif text-2xl sm:text-3xl tracking-[0.2em] uppercase text-ivory-100 font-light">
-                {SITE_CONFIG.brandName}
-              </span>
-            </div>
+            <a href="#hero" className="mb-2">
+              <img
+                src="/images/vb_malgeekar_logo.png"
+                alt="व्ही बी माकणीकर"
+                className="h-14 w-auto object-contain"
+              />
+            </a>
             <p className="font-sans text-xs tracking-[0.3em] uppercase text-gold font-light">
-              Maison de Haute Joaillerie &bull; Paris &bull; London &bull; New York
+              Maison de Haute Joaillerie &bull; Est. 1986
             </p>
           </div>
 
@@ -63,13 +63,11 @@ export const Footer: React.FC = () => {
             <div className="space-y-2 font-light">
               <p className="text-ivory-100">{SITE_CONFIG.contact.displayPhone}</p>
               <p>{SITE_CONFIG.contact.email}</p>
-              <p className="text-gold mt-2 font-mono text-[11px]">{SITE_CONFIG.contact.instagram}</p>
-              <p className="text-ivory-muted/80">{SITE_CONFIG.contact.instagramDisplay}</p>
             </div>
           </div>
 
           {/* Column 3: Private Atelier Concierge Card */}
-          <div className="p-6 bg-charcoal-900 border border-charcoal-800 rounded-2xl flex flex-col justify-between">
+          <div className="p-6 bg-royal-dark/60 border border-royal/25 rounded-2xl flex flex-col justify-between royal-border-glow">
             <div>
               <div className="flex items-center space-x-2 text-gold text-[10px] tracking-widest uppercase mb-2">
                 <span>Bespoke Atelier Inquiries</span>

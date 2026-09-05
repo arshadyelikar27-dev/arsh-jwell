@@ -13,7 +13,7 @@ export const Collection: React.FC<CollectionProps> = ({ onSelectProduct }) => {
 
   // Uniform grid card classes for clean, balanced product showcase
   const getCardClasses = (_index?: number) => {
-    return "col-span-1 min-h-[340px] sm:min-h-[380px] h-[340px] sm:h-[380px]";
+    return "col-span-1";
   };
 
   const handleWhatsAppQuick = (e: React.MouseEvent, product: ProductItem) => {
@@ -26,8 +26,9 @@ export const Collection: React.FC<CollectionProps> = ({ onSelectProduct }) => {
   return (
     <section id="collection" className="relative py-16 sm:py-24 lg:py-32 bg-charcoal-900 overflow-hidden">
       
-      {/* Background Decorative Element */}
+      {/* Background Decorative Elements — Gold + Royal Purple */}
       <div className="absolute top-0 right-0 w-[300px] sm:w-[500px] h-[300px] sm:h-[500px] bg-gold/[0.02] rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[250px] sm:w-[400px] h-[250px] sm:h-[400px] bg-royal/[0.04] rounded-full blur-[130px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
         
@@ -64,7 +65,8 @@ export const Collection: React.FC<CollectionProps> = ({ onSelectProduct }) => {
                   transition={{ duration: 0.35, ease: "easeOut" }}
                   onClick={() => onSelectProduct(product)}
                   data-cursor="INSPECT"
-                  className={`group relative bg-charcoal-850 border border-charcoal-700/60 hover:border-gold/60 rounded-2xl cursor-pointer overflow-hidden transition-all duration-500 flex flex-col justify-end ${spanClass}`}
+                  className={`group relative bg-charcoal-850 border border-charcoal-700/60 hover:border-royal/50 rounded-2xl cursor-pointer overflow-hidden transition-all duration-500 flex flex-col justify-end royal-border-glow ${spanClass}`}
+                  style={{ aspectRatio: '3/4' }}
                 >
                   {/* Stable Image Box preventing image load layout shifts */}
                   <div className="absolute inset-0 w-full h-full overflow-hidden bg-charcoal-800 shimmer-sweep-wrapper">
