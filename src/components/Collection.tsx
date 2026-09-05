@@ -66,14 +66,9 @@ export const Collection: React.FC = () => {
                     {product.category}
                   </div>
 
-                  <h3 className="font-serif text-lg sm:text-xl text-ivory-100 font-light transition-colors duration-300 leading-snug">
+                  <h3 className="font-serif text-lg sm:text-xl text-ivory-100 font-light truncate">
                     {product.name}
                   </h3>
-
-                  {/* Description */}
-                  <p className="font-sans text-[11px] sm:text-xs text-ivory-200/80 mt-1.5 font-light leading-relaxed line-clamp-2">
-                    {product.description}
-                  </p>
                 </div>
 
               </motion.div>
