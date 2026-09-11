@@ -4,96 +4,124 @@ import { SITE_CONFIG } from '../config/siteContent';
 
 export const Hero: React.FC = () => {
   const handleScrollToCollection = () => {
-    const collectionEl = document.querySelector('#brand-statement') || document.querySelector('#collection');
-    if (collectionEl) {
-      collectionEl.scrollIntoView({ behavior: 'smooth' });
-    }
+    const el = document.querySelector('#collection');
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
-    <section id="hero" className="relative w-full min-h-screen flex items-center justify-center overflow-hidden">
-      
-      {/* Minimal Dark Luxury Background & Ambient Glow */}
-      <div className="absolute inset-0 w-full h-full z-0 overflow-hidden bg-charcoal-950">
-        {/* Background Video */}
+    <section
+      id="hero"
+      className="relative w-full flex items-center justify-center overflow-hidden"
+      style={{ backgroundColor: '#000000', height: '90vh' }}
+    >
+      {/* Background Video — very subtle */}
+      <div className="absolute inset-0 w-full h-full z-0 overflow-hidden">
         <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover opacity-60"
+          autoPlay loop muted playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+          style={{ opacity: 0.80, objectPosition: 'top center' }}
         >
           <source src="/Jwell.mp4" type="video/mp4" />
         </video>
 
-        {/* Ambient Gold + Royal Purple Radial Lighting */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] sm:w-[1000px] h-[500px] bg-gold/[0.08] rounded-full blur-[180px] pointer-events-none" />
-        <div className="absolute top-1/4 left-1/4 -translate-x-1/2 w-[350px] h-[350px] bg-royal/[0.07] rounded-full blur-[160px] pointer-events-none" />
-        <div className="absolute top-1/3 right-1/4 translate-x-1/2 w-[280px] h-[280px] bg-royal-light/[0.04] rounded-full blur-[140px] pointer-events-none" />
-
-        {/* Subtle Luxury Mesh Overlays & Hairlines */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-charcoal-900/60 to-charcoal-950 pointer-events-none" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-transparent via-charcoal-950/80 to-charcoal-950 pointer-events-none" />
+        {/* Very soft gold glow — barely visible on white */}
+        <div
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] rounded-full blur-[200px] pointer-events-none"
+          style={{ background: 'rgba(201,162,75,0.07)' }}
+        />
+        <div
+          className="absolute bottom-0 right-0 w-[400px] h-[400px] rounded-full blur-[160px] pointer-events-none"
+          style={{ background: 'rgba(107,45,139,0.05)' }}
+        />
       </div>
 
-      {/* Hero Typography & Content */}
-      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-8 text-center pt-20 sm:pt-24 pb-16 flex flex-col items-center">
-        
-        {/* Uppercase Letter-Spaced Section Label with Gold Hairlines */}
+      {/* Content */}
+      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-8 text-center flex flex-col items-center" style={{ paddingTop: '80px', paddingBottom: '80px' }}>
+
+        {/* Gold hairline label */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="flex items-center space-x-2 sm:space-x-3 mb-4 sm:mb-6"
+          className="flex items-center space-x-3 mb-6"
         >
-          <div className="w-6 sm:w-12 h-[1px] bg-gold/60" />
-          <span className="font-sans text-[9px] sm:text-xs tracking-[0.3em] sm:tracking-[0.35em] uppercase text-gold font-light">
-            {SITE_CONFIG.brandName} &bull; FINE ATELIER
+          <div className="w-16 h-[2px]" style={{ background: '#C9A24B' }} />
+          <span
+            className="font-sans uppercase font-extrabold"
+            style={{ color: '#C9A24B', fontSize: '15px', letterSpacing: '0.2em' }}
+          >
+            {SITE_CONFIG.brandName} &bull; उत्कृष्ट दागिनेकार
           </span>
-          <div className="w-6 sm:w-12 h-[1px] bg-gold/60" />
+          <div className="w-16 h-[2px]" style={{ background: '#C9A24B' }} />
         </motion.div>
 
-        {/* High-Contrast Luxury Serif Headline Tagline */}
+        {/* Main Headline — strong dark color */}
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-          className="font-serif text-3xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight text-ivory-100 font-light leading-[1.12] sm:leading-[1.08] mb-4 sm:mb-6 max-w-4xl"
+          className="font-serif font-light tracking-tight leading-tight mb-6"
+          style={{
+            color: '#FFFFFF',
+            fontSize: 'clamp(2rem, 6vw, 5.5rem)',
+            lineHeight: 1.1,
+            maxWidth: '900px',
+            textShadow: '0 2px 20px rgba(0,0,0,0.4)',
+          }}
         >
           {SITE_CONFIG.tagline}
         </motion.h1>
 
-        {/* Subtext Description */}
+        {/* Subtitle */}
         <motion.p
           initial={{ opacity: 0, y: 25 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.7 }}
-          className="font-sans text-xs sm:text-base md:text-lg text-ivory-200/90 font-light tracking-wide max-w-2xl mx-auto leading-relaxed px-2"
+          className="font-sans font-light tracking-wide leading-relaxed px-2 max-w-xl"
+          style={{ color: 'rgba(255,255,255,0.90)', fontSize: '1rem', textShadow: '0 1px 8px rgba(0,0,0,0.3)' }}
         >
           {SITE_CONFIG.subTagline}
         </motion.p>
+
+        {/* CTA Button */}
+        <motion.button
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.9 }}
+          onClick={handleScrollToCollection}
+          className="mt-10 px-8 py-3 rounded-full font-sans text-xs font-semibold tracking-[0.25em] uppercase transition-all duration-300"
+          style={{
+            background: '#6B2D8B',
+            color: '#FFFFFF',
+            boxShadow: '0 4px 20px rgba(107,45,139,0.30)',
+          }}
+          onMouseEnter={e => (e.currentTarget.style.background = '#9B59C4')}
+          onMouseLeave={e => (e.currentTarget.style.background = '#6B2D8B')}
+        >
+          संग्रह पाहा
+        </motion.button>
       </div>
 
-      {/* Subtle Animated Scroll-Down Cue */}
-      <motion.button
+      {/* Scroll-Down Cue */}
+      <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 1.2 }}
+        transition={{ duration: 1, delay: 1.3 }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center space-y-2 cursor-pointer"
         onClick={handleScrollToCollection}
-        className="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center space-y-2 text-ivory-muted hover:text-gold transition-colors duration-300 group cursor-pointer"
-        aria-label="Scroll down"
       >
-        <span className="font-sans text-[9px] tracking-[0.3em] uppercase text-ivory-muted/80 group-hover:text-gold transition-colors">
-          Discover
+        <span className="font-sans text-[9px] tracking-[0.3em] uppercase" style={{ color: '#C9A24B' }}>
+          शोधा
         </span>
-        <div className="w-[1px] h-6 sm:h-8 bg-charcoal-700 relative overflow-hidden">
+        <div className="w-[1px] h-8 relative overflow-hidden" style={{ background: 'rgba(201,162,75,0.25)' }}>
           <motion.div
             animate={{ y: ['0%', '100%'] }}
             transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}
-            className="absolute top-0 left-0 w-full h-1/2 bg-gold"
+            className="absolute top-0 left-0 w-full h-1/2"
+            style={{ background: '#C9A24B' }}
           />
         </div>
-      </motion.button>
+      </motion.div>
     </section>
   );
 };

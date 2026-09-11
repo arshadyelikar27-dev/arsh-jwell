@@ -3,79 +3,106 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { SITE_CONFIG } from '../config/siteContent';
 
 export const Collection: React.FC = () => {
-
-  const filteredProducts = SITE_CONFIG.products;
+  const products = SITE_CONFIG.products;
 
   return (
-    <section id="collection" className="relative py-16 sm:py-24 lg:py-32 bg-charcoal-900 overflow-hidden">
-      
-      {/* Background Decorative Elements — Gold + Royal Purple */}
-      <div className="absolute top-0 right-0 w-[300px] sm:w-[500px] h-[300px] sm:h-[500px] bg-gold/[0.02] rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-[250px] sm:w-[400px] h-[250px] sm:h-[400px] bg-royal/[0.04] rounded-full blur-[130px] pointer-events-none" />
+    <section
+      id="collection"
+      className="relative overflow-hidden"
+      style={{ background: '#FAFAFA', padding: '80px 0 100px' }}
+    >
+      {/* Subtle ambient glows */}
+      <div
+        className="absolute top-0 right-0 w-[400px] h-[400px] rounded-full pointer-events-none"
+        style={{ background: 'rgba(201,162,75,0.06)', filter: 'blur(120px)' }}
+      />
+      <div
+        className="absolute bottom-0 left-0 w-[350px] h-[350px] rounded-full pointer-events-none"
+        style={{ background: 'rgba(107,45,139,0.05)', filter: 'blur(130px)' }}
+      />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
-        
+      <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 32px', position: 'relative', zIndex: 1 }}>
+
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-16 pb-6 sm:pb-8 border-b border-gold/15">
+        <div
+          style={{
+            display: 'flex', flexWrap: 'wrap', gap: '16px',
+            justifyContent: 'space-between', alignItems: 'flex-end',
+            marginBottom: '48px', paddingBottom: '24px',
+            borderBottom: '1px solid rgba(201,162,75,0.3)',
+          }}
+        >
           <div>
-            <div className="flex items-center space-x-3 mb-2 sm:mb-3">
-              <span className="w-6 sm:w-8 h-[1px] bg-gold" />
-              <span className="font-sans text-[9px] sm:text-xs tracking-[0.3em] uppercase text-gold font-light">
-                CURATED ARCHIVE
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '8px' }}>
+              <div style={{ width: '28px', height: '1px', background: '#C9A24B' }} />
+              <span style={{ fontSize: '13px', letterSpacing: '0.3em', textTransform: 'uppercase', color: '#C9A24B', fontWeight: 800 }}>
+                निवडक संग्रह
               </span>
             </div>
-            <h2 className="font-serif text-3xl sm:text-5xl lg:text-6xl text-ivory-100 font-light tracking-tight">
-              The Collection
+            <h2 style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: 'clamp(2rem, 4vw, 3.5rem)', color: '#1A0A00', fontWeight: 300, margin: 0 }}>
+              आमचा संग्रह
             </h2>
           </div>
-
-          <p className="mt-3 md:mt-0 font-sans text-xs sm:text-sm text-ivory-muted max-w-md font-light leading-relaxed">
-            Singular expressions of fine joaillerie, handcrafted with unyielding precision and generational reverence.
+          <p style={{ fontSize: '13px', color: '#5C3D2E', maxWidth: '380px', lineHeight: 1.7, fontWeight: 300 }}>
+            अनुभवी कारागिरांनी निसनिराळा मेहनतीने घडवलेले दागिने, पिढ्यानपिढ्यांना जपलेली कला.
           </p>
         </div>
 
-        {/* Uniform Luxury Product Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-8">
-          <AnimatePresence mode="popLayout">
-            {filteredProducts.map((product, index) => (
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-6">
+          <AnimatePresence>
+            {products.map((product) => (
               <motion.div
                 key={product.id}
-                initial={{ opacity: 0, scale: 0.98 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.98 }}
-                transition={{ duration: 0.35, ease: "easeOut" }}
-                className="group relative bg-charcoal-850 border border-charcoal-700/60 rounded-2xl overflow-hidden flex flex-col justify-end royal-border-glow col-span-1"
-                style={{ aspectRatio: '3/4' }}
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, ease: 'easeOut' }}
+                style={{
+                  background: '#FFFFFF',
+                  borderRadius: '16px',
+                  overflow: 'hidden',
+                  border: '1px solid rgba(201,162,75,0.18)',
+                  boxShadow: '0 2px 12px rgba(0,0,0,0.06)',
+                  aspectRatio: '3/4',
+                  position: 'relative',
+                  cursor: 'pointer',
+                  transition: 'box-shadow 0.3s, transform 0.3s',
+                }}
+                whileHover={{ y: -4, boxShadow: '0 8px 32px rgba(0,0,0,0.12)' }}
               >
-                {/* Stable Image Box preventing image load layout shifts */}
-                <div className="absolute inset-0 w-full h-full overflow-hidden bg-charcoal-800 shimmer-sweep-wrapper">
+                {/* Image */}
+                <div style={{ position: 'absolute', inset: 0, overflow: 'hidden' }}>
                   <img
                     src={product.image}
                     alt={product.name}
                     loading="eager"
-                    decoding="async"
-                    className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 filter brightness-[0.92] contrast-[1.03] group-hover:brightness-100"
+                    style={{
+                      width: '100%', height: '100%', objectFit: 'cover',
+                      transition: 'transform 0.6s ease',
+                    }}
+                    onMouseEnter={e => (e.currentTarget.style.transform = 'scale(1.05)')}
+                    onMouseLeave={e => (e.currentTarget.style.transform = 'scale(1)')}
                   />
-                  {/* Dark gradient overlay for text readability at bottom */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-charcoal-950 via-charcoal-950/40 to-transparent opacity-85 group-hover:opacity-95 transition-opacity duration-300" />
+                  {/* Bottom gradient for text readability */}
+                  <div
+                    style={{
+                      position: 'absolute', bottom: 0, left: 0, right: 0, height: '50%',
+                      background: 'linear-gradient(to top, rgba(255,255,255,1) 0%, rgba(255,255,255,0.7) 50%, transparent 100%)',
+                    }}
+                  />
                 </div>
 
-                {/* Bottom Information Card */}
-                <div className="relative z-10 p-4 sm:p-6 lg:p-8">
-                  <div className="text-[9px] sm:text-[10px] tracking-[0.3em] uppercase text-gold font-light mb-1">
+                <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '12px 14px', zIndex: 2 }}>
+                  <div style={{ fontSize: '10px', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#C9A24B', fontWeight: 800, marginBottom: '2px' }}>
                     {product.category}
                   </div>
-
-                  <h3 className="font-serif text-lg sm:text-xl text-ivory-100 font-light truncate">
+                  <h3 style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: '15px', color: '#1A0A00', fontWeight: 600, margin: 0, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
                     {product.name}
                   </h3>
                 </div>
-
               </motion.div>
             ))}
           </AnimatePresence>
         </div>
-
       </div>
     </section>
   );

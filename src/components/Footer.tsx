@@ -1,108 +1,223 @@
 import React from 'react';
-import { ArrowUp, MessageSquare } from 'lucide-react';
+import { ArrowUp, MessageSquare, MapPin, Phone, Mail } from 'lucide-react';
 import { SITE_CONFIG } from '../config/siteContent';
 
 export const Footer: React.FC = () => {
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+  const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+
+  const handleWhatsApp = (number: string) => {
+    const raw = number.replace(/[^0-9]/g, '');
+    const text = encodeURIComponent(`Hello ${SITE_CONFIG.brandName}, I would like to inquire about your fine jewellery collection.`);
+    window.open(`https://wa.me/91${raw}?text=${text}`, '_blank');
   };
 
-  const handleWhatsApp = () => {
-    const rawNumber = SITE_CONFIG.contact.whatsappNumber.replace(/[^0-9]/g, '') || '18005555935';
-    window.open(`https://wa.me/${rawNumber}`, '_blank');
+  const linkStyle: React.CSSProperties = {
+    color: '#5C3D2E', textDecoration: 'none', fontSize: '13px', lineHeight: 1.7,
+    transition: 'color 0.2s',
   };
 
   return (
-    <footer id="footer" className="relative bg-charcoal-950 text-ivory-100 pt-24 pb-12 border-t border-gold/15 overflow-hidden">
-      
-      {/* Background Subtle Ambience — gold + royal purple */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-gold/[0.015] rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-royal/[0.04] rounded-full blur-[150px] pointer-events-none" />
+    <footer
+      id="footer"
+      style={{
+        background: '#FFFFFF',
+        borderTop: '1px solid rgba(201,162,75,0.25)',
+        position: 'relative',
+        overflow: 'hidden',
+      }}
+    >
+      {/* Subtle glow */}
+      <div
+        style={{
+          position: 'absolute', bottom: 0, left: '50%', transform: 'translateX(-50%)',
+          width: '700px', height: '250px', borderRadius: '50%',
+          background: 'rgba(201,162,75,0.04)', filter: 'blur(120px)', pointerEvents: 'none',
+        }}
+      />
 
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
-        
-        {/* Top Tier: Brand Signature & Monogram */}
-        <div className="flex flex-col md:flex-row items-center justify-between pb-16 border-b border-charcoal-800 gap-8">
-          
-          <div className="flex flex-col items-center md:items-start text-center md:text-left">
-            <a href="#hero" className="mb-2">
-              <img
-                src="/images/vb_malgeekar_logo.png"
-                alt="व्ही बी माकणीकर"
-                className="h-14 w-auto object-contain"
-              />
-            </a>
-            <p className="font-sans text-xs tracking-[0.3em] uppercase text-gold font-light">
-              Maison de Haute Joaillerie &bull; Est. 1986
-            </p>
+      <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '60px 32px 0', position: 'relative', zIndex: 1 }}>
+
+        {/* Brand Row */}
+        <div
+          style={{
+            display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between',
+            paddingBottom: '40px', borderBottom: '1px solid rgba(201,162,75,0.18)', gap: '20px',
+          }}
+        >
+          <div>
+            <img
+              src="/images/vb_malgeekar_logo.png"
+              alt="व्ही बी माकणीकर"
+              style={{ height: '52px', width: 'auto', objectFit: 'contain', display: 'block', marginBottom: '8px' }}
+            />
+            <span style={{ fontSize: '13px', letterSpacing: '0.25em', textTransform: 'uppercase', color: '#C9A24B', fontWeight: 800 }}>
+              उत्कृष्ट दागिनेकार &bull; स्था. १९६६
+            </span>
           </div>
-
         </div>
 
-        {/* Middle Tier: Navigation Links & Details */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 py-16 border-b border-charcoal-800 text-xs text-ivory-muted">
-          
-          {/* Column 1: Haute Joaillerie Nav */}
+        {/* Three Columns */}
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+            gap: '40px',
+            padding: '48px 0',
+            borderBottom: '1px solid rgba(201,162,75,0.15)',
+          }}
+        >
+          {/* Creations */}
           <div>
-            <h4 className="font-serif text-base text-ivory-100 tracking-wider uppercase mb-4">
-              Creations
+            <h4 style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: '16px', color: '#1A0A00', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '20px', fontWeight: 400 }}>
+              संग्रह
             </h4>
-            <ul className="space-y-2.5 font-light">
-              <li><a href="#collection" className="hover:text-gold transition-colors">Solitaire Diamonds</a></li>
-              <li><a href="#collection" className="hover:text-gold transition-colors">Temple Kundan & Polki</a></li>
-              <li><a href="#collection" className="hover:text-gold transition-colors">Bridal Mangalsutras</a></li>
-              <li><a href="#collection" className="hover:text-gold transition-colors">Emerald & Gemstone Heirlooms</a></li>
+            <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '10px' }}>
+              {['हिरे व सोलिटेअर', 'कुंदन आणि पोलकी', 'वधूचे मंगळसूत्र', 'पाचू आणि रत्नदागिने'].map(item => (
+                <li key={item}>
+                  <a href="#collection" style={linkStyle}
+                    onMouseEnter={e => (e.currentTarget.style.color = '#C9A24B')}
+                    onMouseLeave={e => (e.currentTarget.style.color = '#5C3D2E')}
+                  >
+                    {item}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
-          {/* Column 2: Contact & Direct Inquiries */}
+          {/* Visit Us */}
           <div>
-            <h4 className="font-serif text-base text-ivory-100 tracking-wider uppercase mb-4">
-              Direct Inquiries
+            <h4 style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: '16px', color: '#1A0A00', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '20px', fontWeight: 400 }}>
+              आमच्याकडे या
             </h4>
-            <div className="space-y-2 font-light">
-              <p className="text-ivory-100">{SITE_CONFIG.contact.displayPhone}</p>
-              <p>{SITE_CONFIG.contact.email}</p>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
+              <div style={{ display: 'flex', gap: '10px', alignItems: 'flex-start' }}>
+                <MapPin size={14} style={{ color: '#C9A24B', flexShrink: 0, marginTop: '2px' }} />
+                <div>
+                  <p style={{ margin: 0, fontSize: '13px', color: '#1A0A00', lineHeight: 1.6 }}>{SITE_CONFIG.contact.address}</p>
+                  <p style={{ margin: 0, fontSize: '12px', color: '#5C3D2E', lineHeight: 1.5 }}>{SITE_CONFIG.contact.addressEn}</p>
+                </div>
+              </div>
+              <div style={{ display: 'flex', gap: '10px', alignItems: 'flex-start' }}>
+                <Phone size={14} style={{ color: '#C9A24B', flexShrink: 0, marginTop: '2px' }} />
+                <div>
+                  <p style={{ margin: 0, fontSize: '13px', color: '#1A0A00' }}>+91 {SITE_CONFIG.contact.whatsappNumber}</p>
+                  <p style={{ margin: 0, fontSize: '13px', color: '#1A0A00' }}>+91 {SITE_CONFIG.contact.whatsappNumber2}</p>
+                </div>
+              </div>
+              <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
+                <Mail size={14} style={{ color: '#C9A24B', flexShrink: 0 }} />
+                <a href={`mailto:${SITE_CONFIG.contact.email}`}
+                  style={{ fontSize: '13px', color: '#5C3D2E', textDecoration: 'none', wordBreak: 'break-all' }}
+                  onMouseEnter={e => (e.currentTarget.style.color = '#C9A24B')}
+                  onMouseLeave={e => (e.currentTarget.style.color = '#5C3D2E')}
+                >
+                  {SITE_CONFIG.contact.email}
+                </a>
+              </div>
             </div>
           </div>
 
-          {/* Column 3: Private Atelier Concierge Card */}
-          <div className="p-6 bg-royal-dark/60 border border-royal/25 rounded-2xl flex flex-col justify-between royal-border-glow">
+          {/* WhatsApp CTA */}
+          <div
+            style={{
+              background: 'rgba(107,45,139,0.04)',
+              border: '1px solid rgba(107,45,139,0.18)',
+              borderRadius: '16px',
+              padding: '24px',
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '16px',
+            }}
+          >
             <div>
-              <div className="flex items-center space-x-2 text-gold text-[10px] tracking-widest uppercase mb-2">
-                <span>Bespoke Atelier Inquiries</span>
-              </div>
-              <p className="font-light text-xs text-ivory-200/80 leading-relaxed mb-4">
-                Connect directly with our master goldsmiths for bespoke heirloom creations.
+              <p style={{ fontSize: '13px', letterSpacing: '0.25em', textTransform: 'uppercase', color: '#C9A24B', fontWeight: 800, marginBottom: '8px' }}>
+                विशेष चौकशी
+              </p>
+              <p style={{ fontSize: '12px', color: '#5C3D2E', lineHeight: 1.6, margin: 0 }}>
+                आमच्या तज्ज सोनारांशी थेट संपर्क साधा आणि तुमच्या अनुरूप हस्तनिर्मित दागिन्यांसाठी विचारना करा.
               </p>
             </div>
-            <button
-              onClick={handleWhatsApp}
-              className="px-4 py-2.5 bg-gold/10 hover:bg-gold hover:text-charcoal-950 text-gold text-[11px] tracking-[0.2em] uppercase rounded-full font-medium transition-all duration-300 flex items-center justify-center space-x-2 border border-gold/40"
-            >
-              <MessageSquare className="w-3.5 h-3.5" />
-              <span>Inquire on WhatsApp</span>
-            </button>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+              <button
+                onClick={() => handleWhatsApp(SITE_CONFIG.contact.whatsappNumber)}
+                style={{
+                  padding: '10px 16px', borderRadius: '999px',
+                  border: '1px solid rgba(201,162,75,0.45)',
+                  background: 'rgba(201,162,75,0.08)',
+                  color: '#7A5C1E', fontSize: '11px', letterSpacing: '0.12em',
+                  textTransform: 'uppercase', fontWeight: 600, cursor: 'pointer',
+                  display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px',
+                  transition: 'background 0.2s',
+                }}
+                onMouseEnter={e => (e.currentTarget.style.background = '#C9A24B', e.currentTarget.style.color = '#FFFFFF')}
+                onMouseLeave={e => (e.currentTarget.style.background = 'rgba(201,162,75,0.08)', e.currentTarget.style.color = '#7A5C1E')}
+              >
+                <MessageSquare size={13} />
+                WA: {SITE_CONFIG.contact.whatsappNumber}
+              </button>
+              <button
+                onClick={() => handleWhatsApp(SITE_CONFIG.contact.whatsappNumber2)}
+                style={{
+                  padding: '10px 16px', borderRadius: '999px',
+                  border: '1px solid rgba(107,45,139,0.35)',
+                  background: 'rgba(107,45,139,0.07)',
+                  color: '#6B2D8B', fontSize: '11px', letterSpacing: '0.12em',
+                  textTransform: 'uppercase', fontWeight: 600, cursor: 'pointer',
+                  display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px',
+                  transition: 'background 0.2s',
+                }}
+                onMouseEnter={e => (e.currentTarget.style.background = '#6B2D8B', e.currentTarget.style.color = '#FFFFFF')}
+                onMouseLeave={e => (e.currentTarget.style.background = 'rgba(107,45,139,0.07)', e.currentTarget.style.color = '#6B2D8B')}
+              >
+                <MessageSquare size={13} />
+                WA: {SITE_CONFIG.contact.whatsappNumber2}
+              </button>
+            </div>
           </div>
-
         </div>
 
-        {/* Bottom Tier: Copyright & Back to Top */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-ivory-muted/70 font-light">
-          <div>
-            &copy; {new Date().getFullYear()} {SITE_CONFIG.brandName} Fine Jewellery. All Rights Reserved.
-          </div>
-
+        {/* Bottom Bar */}
+        <div
+          style={{
+            display: 'flex', flexWrap: 'wrap', alignItems: 'center',
+            justifyContent: 'space-between', gap: '16px',
+            padding: '24px 0',
+            fontSize: '11px', color: 'rgba(92,61,46,0.55)',
+          }}
+        >
+          <span>&copy; {new Date().getFullYear()} {SITE_CONFIG.brandName} दागिने. सर्व हक्क राखीव.</span>
           <button
             onClick={scrollToTop}
-            className="flex items-center space-x-2.5 px-4 py-2 rounded-full border border-charcoal-700 hover:border-gold hover:text-gold text-ivory-muted transition-all duration-300 group focus:outline-none"
-            aria-label="Back to top"
+            style={{
+              display: 'flex', alignItems: 'center', gap: '8px',
+              background: 'none', border: '1px solid rgba(201,162,75,0.3)',
+              borderRadius: '999px', padding: '7px 16px',
+              color: '#5C3D2E', fontSize: '10px', letterSpacing: '0.2em',
+              textTransform: 'uppercase', cursor: 'pointer', transition: 'border-color 0.2s, color 0.2s',
+            }}
+            onMouseEnter={e => { e.currentTarget.style.borderColor = '#C9A24B'; e.currentTarget.style.color = '#C9A24B'; }}
+            onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(201,162,75,0.3)'; e.currentTarget.style.color = '#5C3D2E'; }}
           >
-            <span className="tracking-[0.2em] uppercase text-[10px]">Back to Top</span>
-            <ArrowUp className="w-3.5 h-3.5 text-gold group-hover:-translate-y-0.5 transition-transform" />
+            वर जा <ArrowUp size={12} style={{ color: '#C9A24B' }} />
           </button>
         </div>
+      </div>
 
+      {/* Bottom strip */}
+      <div
+        style={{
+          background: 'rgba(201,162,75,0.05)',
+          borderTop: '1px solid rgba(201,162,75,0.12)',
+          padding: '12px',
+          textAlign: 'center',
+          fontSize: '10px',
+          letterSpacing: '0.25em',
+          textTransform: 'uppercase',
+          color: 'rgba(92,61,46,0.45)',
+        }}
+      >
+        प्रेमाने घडवलेले, लातूर, महाराष्ट्र
       </div>
     </footer>
   );

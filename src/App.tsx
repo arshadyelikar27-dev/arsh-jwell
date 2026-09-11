@@ -6,13 +6,14 @@ import { Collection } from './components/Collection';
 import { Footer } from './components/Footer';
 import { NoiseOverlay } from './components/NoiseOverlay';
 import { useSmoothScroll } from './hooks/useSmoothScroll';
+import { WhatsAppToggle } from './components/WhatsAppToggle';
 
 export const App: React.FC = () => {
   // Initialize Lenis smooth scroll
   useSmoothScroll();
 
   return (
-    <div className="relative min-h-screen bg-charcoal-900 text-ivory-100 selection:bg-gold selection:text-charcoal-950 font-sans overflow-x-hidden">
+    <div className="relative min-h-screen bg-white text-[#1A0A00] selection:bg-royal selection:text-white font-sans overflow-x-hidden">
       {/* Film grain noise texture */}
       <NoiseOverlay />
 
@@ -31,6 +32,9 @@ export const App: React.FC = () => {
 
       {/* 3. Minimal Dark Luxury Footer */}
       <Footer />
+
+      {/* WhatsApp Floating Toggle */}
+      <WhatsAppToggle />
     </div>
   );
 };

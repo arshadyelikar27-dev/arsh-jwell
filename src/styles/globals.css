@@ -4,24 +4,30 @@
 
 @layer base {
   :root {
-    --color-charcoal-900: #0B0B0C;
-    --color-charcoal-800: #161619;
-    --color-ivory-100: #F5F0E6;
+    /* Light ivory/cream luxury background — inspired by krishnajewellers.com */
+    --color-bg-primary:   #F8F4EE;
+    --color-bg-secondary: #F2EDE4;
+    --color-bg-card:      #FFFFFF;
+    --color-text-primary: #3D2B1F;
+    --color-text-muted:   #7A6555;
+    /* Gold */
     --color-gold: #C9A24B;
-    /* Logo Royal Purple */
+    /* Logo Royal Purple — kept as accent */
     --color-royal: #6B2D8B;
     --color-royal-light: #9B59C4;
-    --color-royal-glow: rgba(107, 45, 139, 0.20);
+    --color-royal-glow: rgba(107, 45, 139, 0.18);
+    /* Dark strip (top bar / footer) */
+    --color-dark-strip: #3D2B1F;
   }
 
   html {
     scroll-behavior: smooth;
-    background-color: #0B0B0C;
-    color: #F5F0E6;
+    background-color: #FFFFFF;
+    color: #3D2B1F;
   }
 
   body {
-    background-color: #0B0B0C;
+    background-color: #FFFFFF;
     font-family: 'Plus Jakarta Sans', sans-serif;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
@@ -31,7 +37,7 @@
   /* Custom selection — Royal Purple */
   ::selection {
     background-color: #6B2D8B;
-    color: #F5F0E6;
+    color: #F8F4EE;
   }
 
   /* Custom scrollbar */
@@ -39,14 +45,14 @@
     width: 6px;
   }
   ::-webkit-scrollbar-track {
-    background: #0B0B0C;
+    background: #FFFFFF;
   }
   ::-webkit-scrollbar-thumb {
-    background: #2A2A30;
+    background: #C9A24B;
     border-radius: 3px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #C9A24B;
+    background: #6B2D8B;
   }
 }
 
