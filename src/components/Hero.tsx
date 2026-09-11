@@ -5,7 +5,12 @@ import { SITE_CONFIG } from '../config/siteContent';
 export const Hero: React.FC = () => {
   const handleScrollToCollection = () => {
     const el = document.querySelector('#collection');
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
+    if (el) {
+      const navHeight = 100;
+      const elementPosition = el.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - navHeight;
+      window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+    }
   };
 
   return (
