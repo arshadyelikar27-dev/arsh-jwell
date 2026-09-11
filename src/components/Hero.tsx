@@ -17,7 +17,7 @@ export const Hero: React.FC = () => {
       {/* Background Video — very subtle */}
       <div className="absolute inset-0 w-full h-full z-0 overflow-hidden">
         <video
-          autoPlay loop muted playsInline
+          autoPlay loop muted playsInline preload="auto"
           className="absolute inset-0 w-full h-full object-cover"
           style={{ opacity: 0.80, objectPosition: 'top center' }}
         >

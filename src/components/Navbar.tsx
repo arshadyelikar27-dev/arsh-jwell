@@ -28,102 +28,51 @@ export const Navbar: React.FC = () => {
     <>
       {/* ── Combined Fixed Header (strip + nav as one block, no blur/animation) ── */}
       <div
-        style={{
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          width: '100%',
-          zIndex: 100,
-          background: '#FFFFFF',
-          borderBottom: '2px solid rgba(201,162,75,0.35)',
-        }}
+        className="fixed top-0 left-0 w-full z-[100] bg-white border-b-2 border-[#C9A24B]/35"
       >
         {/* Top Info Strip */}
-        <div
-          style={{
-            background: '#6B2D8B',
-            borderBottom: '1px solid rgba(107,45,139,0.6)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            gap: '20px',
-            flexWrap: 'wrap',
-            padding: '6px 16px',
-            fontSize: '11px',
-            letterSpacing: '0.1em',
-            color: '#FFFFFF',
-          }}
-        >
-          <span style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
-            <MapPin size={11} style={{ color: '#C9A24B', flexShrink: 0 }} />
-            <strong style={{ fontWeight: 600, color: '#FFFFFF' }}>{SITE_CONFIG.contact.address}</strong>
+        <div className="bg-[#6B2D8B] border-b border-[#6B2D8B]/60 flex items-center justify-center gap-2 sm:gap-5 flex-wrap px-2 sm:px-4 py-1.5 text-[10px] sm:text-[11px] tracking-widest text-white">
+          <span className="hidden md:flex items-center gap-1.5">
+            <MapPin size={11} className="text-[#C9A24B] shrink-0" />
+            <strong className="font-semibold text-white">{SITE_CONFIG.contact.address}</strong>
           </span>
-          <span style={{ color: 'rgba(201,162,75,0.7)' }}>|</span>
-          <span style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
-            <MessageSquare size={11} style={{ color: '#C9A24B', flexShrink: 0 }} />
+          <span className="hidden md:inline text-[#C9A24B]/70">|</span>
+          <span className="flex items-center gap-1.5">
+            <MessageSquare size={11} className="text-[#C9A24B] shrink-0" />
             <a
               href={`https://wa.me/91${SITE_CONFIG.contact.whatsappNumber}?text=${encodeURIComponent('नमस्कार! मला व्ही बी माकणीकर यांच्या दागिन्यांबद्दल चौकशी करायची आहे. कृपया मला अधिक माहिती द्या.')}`}
               target="_blank"
               rel="noopener noreferrer"
-              style={{
-                fontWeight: 700,
-                color: '#FFFFFF',
-                textDecoration: 'none',
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '4px',
-                cursor: 'pointer',
-                transition: 'color 0.2s',
-              }}
-              onMouseEnter={e => (e.currentTarget.style.color = '#C9A24B')}
-              onMouseLeave={e => (e.currentTarget.style.color = '#FFFFFF')}
+              className="font-bold text-white no-underline inline-flex items-center gap-1 cursor-pointer transition-colors hover:text-[#C9A24B]"
             >
               📲 +91 {SITE_CONFIG.contact.whatsappNumber}
             </a>
-            <span style={{ color: 'rgba(201,162,75,0.5)' }}>/</span>
-            <strong style={{ fontWeight: 700, color: '#FFFFFF' }}>
+            <span className="text-[#C9A24B]/50">/</span>
+            <strong className="font-bold text-white">
               +91 {SITE_CONFIG.contact.whatsappNumber2}
             </strong>
           </span>
         </div>
 
         {/* Main Navbar */}
-        <div
-          style={{
-            background: '#FFFFFF',
-            padding: '12px 32px',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-          }}
-        >
+        <div className="bg-white px-4 py-2.5 md:px-8 md:py-3 flex items-center justify-between">
           {/* Logo */}
-          <a href="#hero" onClick={(e) => handleNavClick(e, '#hero')} style={{ display: 'flex', alignItems: 'center' }}>
+          <a href="#hero" onClick={(e) => handleNavClick(e, '#hero')} className="flex items-center">
             <img
               src="/images/vb_malgeekar_logo.png"
               alt="व्ही बी माकणीकर"
-              style={{ height: '46px', width: 'auto', objectFit: 'contain' }}
+              className="h-[32px] sm:h-[38px] md:h-[46px] w-auto object-contain"
             />
           </a>
 
           {/* Desktop Nav Links */}
-          <nav style={{ display: 'flex', gap: '40px', alignItems: 'center' }} className="hidden md:flex">
+          <nav className="hidden md:flex gap-10 items-center">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.href)}
-                style={{
-                  fontFamily: 'Plus Jakarta Sans, sans-serif',
-                  fontSize: '11px',
-                  fontWeight: 700,
-                  letterSpacing: '0.22em',
-                  textTransform: 'uppercase',
-                  color: '#1A0A00',
-                  textDecoration: 'none',
-                }}
-                onMouseEnter={e => (e.currentTarget.style.color = '#C9A24B')}
-                onMouseLeave={e => (e.currentTarget.style.color = '#1A0A00')}
+                className="font-sans text-[11px] font-bold tracking-[0.22em] uppercase text-[#1A0A00] no-underline transition-colors hover:text-[#C9A24B]"
               >
                 {link.name}
               </a>
@@ -133,23 +82,7 @@ export const Navbar: React.FC = () => {
           {/* Inquire Button */}
           <button
             onClick={handleWhatsApp}
-            className="hidden sm:flex"
-            style={{
-              alignItems: 'center',
-              gap: '7px',
-              background: '#6B2D8B',
-              color: '#FFFFFF',
-              border: 'none',
-              padding: '10px 22px',
-              borderRadius: '999px',
-              fontSize: '11px',
-              fontWeight: 700,
-              letterSpacing: '0.2em',
-              textTransform: 'uppercase',
-              cursor: 'pointer',
-            }}
-            onMouseEnter={e => (e.currentTarget.style.background = '#9B59C4')}
-            onMouseLeave={e => (e.currentTarget.style.background = '#6B2D8B')}
+            className="hidden sm:flex items-center gap-1.5 bg-[#6B2D8B] text-white px-5 py-2.5 rounded-full text-[11px] font-bold tracking-[0.2em] uppercase cursor-pointer transition-colors hover:bg-[#9B59C4]"
           >
             <MessageSquare size={13} />
             चौकशी करा
@@ -157,60 +90,47 @@ export const Navbar: React.FC = () => {
 
           {/* Mobile Hamburger */}
           <button
-            className="md:hidden"
+            className="md:hidden bg-transparent border-none cursor-pointer text-[#1A0A00] p-1.5"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            style={{
-              background: 'none', border: 'none', cursor: 'pointer',
-              color: '#1A0A00', padding: '6px',
-            }}
           >
             {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
 
-        {/* Mobile Drawer — simple dropdown, no blur */}
-        {mobileMenuOpen && (
-          <div
-            style={{
-              background: '#FFFFFF',
-              borderTop: '1px solid rgba(201,162,75,0.2)',
-              padding: '24px 32px',
-            }}
-          >
-            <nav style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}>
-              {navLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  onClick={(e) => handleNavClick(e, link.href)}
-                  style={{
-                    fontFamily: 'Cormorant Garamond, serif',
-                    fontSize: '22px',
-                    color: '#1A0A00',
-                    textDecoration: 'none',
-                  }}
+        {/* Mobile Drawer */}
+        <AnimatePresence>
+          {mobileMenuOpen && (
+            <motion.div
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: 'auto', opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              className="bg-white border-t border-[#C9A24B]/20 px-6 py-6 overflow-hidden md:hidden"
+            >
+              <nav className="flex flex-col gap-4">
+                {navLinks.map((link) => (
+                  <a
+                    key={link.name}
+                    href={link.href}
+                    onClick={(e) => handleNavClick(e, link.href)}
+                    className="font-serif text-[18px] text-[#1A0A00] no-underline border-b border-gray-100 pb-2"
+                  >
+                    {link.name}
+                  </a>
+                ))}
+                <button
+                  onClick={() => { setMobileMenuOpen(false); handleWhatsApp(); }}
+                  className="mt-2 bg-[#6B2D8B] text-white rounded-full px-5 py-3 text-[11px] tracking-[0.2em] uppercase font-bold cursor-pointer hover:bg-[#9B59C4] transition-colors"
                 >
-                  {link.name}
-                </a>
-              ))}
-              <button
-                onClick={() => { setMobileMenuOpen(false); handleWhatsApp(); }}
-                style={{
-                  marginTop: '8px', background: '#6B2D8B', color: '#fff',
-                  border: 'none', borderRadius: '999px', padding: '13px 24px',
-                  fontSize: '11px', letterSpacing: '0.2em', textTransform: 'uppercase',
-                  fontWeight: 700, cursor: 'pointer',
-                }}
-              >
-                व्हॉट्सॲपवर चौकशी करा
-              </button>
-            </nav>
-          </div>
-        )}
+                  व्हॉट्सॲपवर चौकशी करा
+                </button>
+              </nav>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
 
-      {/* Spacer so content doesn't hide behind fixed header (~30px strip + ~70px nav = 100px) */}
-      <div style={{ height: '100px' }} />
+      {/* Spacer so content doesn't hide behind fixed header */}
+      <div className="h-[80px] md:h-[100px]" />
     </>
   );
 };
