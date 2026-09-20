@@ -2,6 +2,7 @@ import React from 'react';
 import { CustomCursor } from './components/CustomCursor';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
+import { LiveRates } from './components/LiveRates';
 import { Collection } from './components/Collection';
 import { Footer } from './components/Footer';
 import { NoiseOverlay } from './components/NoiseOverlay';
@@ -27,7 +28,10 @@ export const App: React.FC = () => {
       {/* 1. Full-Bleed Video Hero Section */}
       <Hero />
 
-      {/* 2. Asymmetric Editorial Collection Showroom */}
+      {/* 2. Live Gold & Silver Rate Widget */}
+      <LiveRates />
+
+      {/* 3. Collection with Filters */}
       <Collection />
 
       {/* 3. Minimal Dark Luxury Footer */}
