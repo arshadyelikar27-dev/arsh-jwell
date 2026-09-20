@@ -177,39 +177,8 @@ const SECTIONS: JewellerySection[] = [
       },
     ],
   },
-  {
-    id: 'rings',
-    title: 'Rings & Bangles',
-    titleMr: 'अंगठ्या व कडे',
-    products: [
-      {
-        id: 'r1',
-        label: 'Solitaire Ring',
-        image: '/images/p-ring-diamond.jpg',
-      },
-      {
-        id: 'r2',
-        label: 'Gold Bangles',
-        image: 'https://images.unsplash.com/photo-1601821765780-754fa98637c1?w=600&q=80&fit=crop',
-      },
-      {
-        id: 'r3',
-        label: 'Diamond Ring',
-        image: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=600&q=80&fit=crop',
-      },
-      {
-        id: 'r4',
-        label: 'Stacking Bangles',
-        image: 'https://images.unsplash.com/photo-1573408301369-9b7a4e667e87?w=600&q=80&fit=crop',
-      },
-      {
-        id: 'r5',
-        label: 'Navratna Ring',
-        image: 'https://images.unsplash.com/photo-1552323543-b577b05d9218?w=600&q=80&fit=crop',
-      },
-    ],
-  },
 ];
+
 
 // ─── Product Card ─────────────────────────────────────────────────────────────
 
