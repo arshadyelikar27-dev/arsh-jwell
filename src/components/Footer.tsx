@@ -46,7 +46,7 @@ export const Footer: React.FC = () => {
         >
           <div>
             <img
-              src="/images/vb_malgeekar_logo.png"
+              src="/images/vb_malgeekar_logo.webp"
               alt="व्ही बी माकणीकर"
               style={{ height: '52px', width: 'auto', objectFit: 'contain', display: 'block', marginBottom: '8px' }}
             />

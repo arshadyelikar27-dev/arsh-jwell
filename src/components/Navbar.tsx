@@ -72,7 +72,7 @@ export const Navbar: React.FC = () => {
           {/* Logo */}
           <a href="#hero" onClick={(e) => handleNavClick(e, '#hero')} className="flex items-center">
             <img
-              src="/images/vb_malgeekar_logo.png"
+              src="/images/vb_malgeekar_logo.webp"
               alt="व्ही बी माकणीकर"
               className="h-[32px] sm:h-[38px] md:h-[46px] w-auto object-contain"
             />

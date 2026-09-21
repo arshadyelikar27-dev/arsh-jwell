@@ -39,7 +39,7 @@ export const SITE_CONFIG = {
       description: "२२ कॅरेट सोन्याचे पारंपारिक नक्षीकाम असलेले आणि सुंदर फुलांची रचना असलेले कडे.",
       metal: "२२ कॅरेट पिवळे सोने",
       gemstone: "कोणतेही नाही",
-      image: "/images/product-01.png",
+      image: "/images/product-01.webp",
       aspect: "tall",
     },
     {
@@ -51,7 +51,7 @@ export const SITE_CONFIG = {
       description: "दोन पदरी डायमंड नेकलेस ज्यामध्ये उत्कृष्ट हिऱ्यांची सजावट आणि ड्रॉप पेंडंट आहे.",
       metal: "१८ कॅरेट पांढरे सोने",
       gemstone: "व्हीव्हीएस डायमंड्स",
-      image: "/images/product-02.png",
+      image: "/images/product-02.webp",
       aspect: "portrait",
     },
     {
@@ -63,7 +63,7 @@ export const SITE_CONFIG = {
       description: "प्रशस्त डायमंड आणि पांढऱ्या सोन्याचा चोकर, लग्नसराईसाठी उत्तम निवड.",
       metal: "१८ कॅरेट पांढरे सोने",
       gemstone: "डायमंड्स",
-      image: "/images/product-03.png",
+      image: "/images/product-03.webp",
       aspect: "wide",
     },
     {
@@ -75,7 +75,7 @@ export const SITE_CONFIG = {
       description: "मध्यभागी आकर्षक पाचू आणि सभोवताली हिऱ्यांची कलाकुसर असलेला भव्य चोकर.",
       metal: "१८ कॅरेट पांढरे सोने",
       gemstone: "पाचू आणि हिरे",
-      image: "/images/product-04.png",
+      image: "/images/product-04.webp",
       aspect: "wide",
     },
     {
@@ -87,7 +87,7 @@ export const SITE_CONFIG = {
       description: "सुंदर निळे नीलम आणि चमकदार हिऱ्यांनी सजलेला पारंपरिक आणि राजेशाही कंबरपट्टा.",
       metal: "१८ कॅरेट पांढरे सोने",
       gemstone: "नीलम (Sapphire) आणि हिरे",
-      image: "/images/product-05.png",
+      image: "/images/product-05.webp",
       aspect: "wide",
     },
     {
@@ -99,7 +99,7 @@ export const SITE_CONFIG = {
       description: "पांढऱ्या सोन्यात जडवलेले अप्रतिम डायमंड ड्रॉप इयररिंग्ज, खास प्रसंगांसाठी.",
       metal: "१८ कॅरेट पांढरे सोने",
       gemstone: "हिरे",
-      image: "/images/product-06.png",
+      image: "/images/product-06.webp",
       aspect: "tall",
     },
     {
@@ -111,7 +111,7 @@ export const SITE_CONFIG = {
       description: "हिरवे मणी आणि अनकट पोलकी कुंदनने सजलेला पारंपारिक नेकलेस.",
       metal: "२२ कॅरेट पिवळे सोने",
       gemstone: "पोलकी आणि पाचू मणी",
-      image: "/images/product-07.png",
+      image: "/images/product-07.webp",
       aspect: "portrait",
     },
     {
@@ -123,7 +123,7 @@ export const SITE_CONFIG = {
       description: "मोत्यांच्या झालरसह आणि रंगीत रत्नांनी जडलेला आकर्षक चोकर.",
       metal: "२२ कॅरेट पिवळे सोने",
       gemstone: "नवरत्न आणि मोती",
-      image: "/images/product-08.png",
+      image: "/images/product-08.webp",
       aspect: "wide",
     },
     {
@@ -135,7 +135,7 @@ export const SITE_CONFIG = {
       description: "मीनाकारी आणि पोलकीने सजलेला लांब हार, मोत्यांच्या गुंफणीसह.",
       metal: "२२ कॅरेट अँटिक सोने",
       gemstone: "पोलकी आणि मोती",
-      image: "/images/product-09.png",
+      image: "/images/product-09.webp",
       aspect: "tall",
     },
     {
@@ -147,7 +147,7 @@ export const SITE_CONFIG = {
       description: "सुंदर मोराची नक्षी आणि रत्नांनी जडवलेला राजेशाही कंबरपट्टा.",
       metal: "२२ कॅरेट पिवळे सोने",
       gemstone: "माणिक, पाचू आणि मोती",
-      image: "/images/product-10.png",
+      image: "/images/product-10.webp",
       aspect: "wide",
     },
     {
@@ -159,7 +159,7 @@ export const SITE_CONFIG = {
       description: "रंगीबेरंगी रत्ने आणि मोत्यांच्या लांब झालरसह पारंपारिक कुंदन झुमके.",
       metal: "२२ कॅरेट पिवळे सोने",
       gemstone: "कुंदन, मोती आणि माणिक",
-      image: "/images/product-11.png",
+      image: "/images/product-11.webp",
       aspect: "tall",
     },
     {
@@ -171,7 +171,7 @@ export const SITE_CONFIG = {
       description: "रोझ गोल्डमध्ये जडवलेली सुंदर हिऱ्याची अंगठी.",
       metal: "१८ कॅरेट रोझ गोल्ड",
       gemstone: "हिरे",
-      image: "/images/product-12.png",
+      image: "/images/product-12.webp",
       aspect: "standard",
     },
     {
@@ -183,7 +183,7 @@ export const SITE_CONFIG = {
       description: "सोप्या आणि सुंदर डिझाईनचे मोत्याचे ड्रॉप इयररिंग्ज, रोजच्या वापरासाठी.",
       metal: "१८ कॅरेट पिवळे सोने",
       gemstone: "गोड्या पाण्याचे मोती",
-      image: "/images/product-13.png",
+      image: "/images/product-13.webp",
       aspect: "standard",
     },
     {
@@ -195,7 +195,7 @@ export const SITE_CONFIG = {
       description: "रोजच्या वापरासाठी योग्य, हलके आणि सुंदर सोन्याचे ब्रेसलेट.",
       metal: "२२ कॅरेट पिवळे सोने",
       gemstone: "कोणतेही नाही",
-      image: "/images/product-14.png",
+      image: "/images/product-14.webp",
       aspect: "wide",
     },
     {
@@ -207,7 +207,7 @@ export const SITE_CONFIG = {
       description: "सुंदर माणिक आणि हिऱ्यांनी जडवलेला पेंडंट आणि इयररिंग्जचा सेट.",
       metal: "१८ कॅरेट पांढरे सोने",
       gemstone: "माणिक आणि हिरे",
-      image: "/images/product-15.png",
+      image: "/images/product-15.webp",
       aspect: "portrait",
     },
     {
@@ -219,7 +219,7 @@ export const SITE_CONFIG = {
       description: "सोन्याच्या मण्यांनी गुंफलेली पारंपारिक महाराष्ट्रीयन ठुशी.",
       metal: "२२ कॅरेट पिवळे सोने",
       gemstone: "कोणतेही नाही",
-      image: "/images/product-16.png",
+      image: "/images/product-16.webp",
       aspect: "wide",
     },
     {
@@ -231,7 +231,7 @@ export const SITE_CONFIG = {
       description: "आधुनिक डिझाईनचे हिऱ्यांनी जडवलेले मंगळसूत्र.",
       metal: "१८ कॅरेट पिवळे आणि पांढरे सोने",
       gemstone: "हिरे",
-      image: "/images/product-17.png",
+      image: "/images/product-17.webp",
       aspect: "wide",
     },
     {
@@ -243,7 +243,7 @@ export const SITE_CONFIG = {
       description: "देवतेची मूर्ती आणि नक्षीकाम असलेले पारंपारिक सोन्याचे इयररिंग्ज.",
       metal: "२२ कॅरेट पिवळे सोने",
       gemstone: "माणिक आणि पाचू",
-      image: "/images/product-18.png",
+      image: "/images/product-18.webp",
       aspect: "tall",
     },
     {
@@ -255,7 +255,7 @@ export const SITE_CONFIG = {
       description: "प्लॅटिनममध्ये जडवलेली अप्रतिम गोल सोलिटेअर अंगठी.",
       metal: "९५० प्लॅटिनम",
       gemstone: "सोलिटेअर हिरा",
-      image: "/images/product-19.png",
+      image: "/images/product-19.webp",
       aspect: "standard",
     },
     {
@@ -267,7 +267,7 @@ export const SITE_CONFIG = {
       description: "रोजच्या वापरासाठी योग्य, साधे आणि सुंदर पाचूचे स्टड्स.",
       metal: "१८ कॅरेट पिवळे सोने",
       gemstone: "पाचू",
-      image: "/images/product-20.png",
+      image: "/images/product-20.webp",
       aspect: "standard",
     },
     {
@@ -279,7 +279,7 @@ export const SITE_CONFIG = {
       description: "जाड आणि नक्षीदार सोन्याच्या गोठ बांगड्या.",
       metal: "२२ कॅरेट पिवळे सोने",
       gemstone: "कोणतेही नाही",
-      image: "/images/product-21.png",
+      image: "/images/product-21.webp",
       aspect: "standard",
     },
     {
@@ -291,7 +291,7 @@ export const SITE_CONFIG = {
       description: "वधूंसाठी खास पोलकी आणि मोत्यांनी सजलेला मांग टिका.",
       metal: "२२ कॅरेट पिवळे सोने",
       gemstone: "पोलकी आणि मोती",
-      image: "/images/product-22.png",
+      image: "/images/product-22.webp",
       aspect: "portrait",
     },
     {
@@ -303,7 +303,7 @@ export const SITE_CONFIG = {
       description: "हाताच्या सौंदर्यात भर घालणारे क्लासिक डायमंड टेनिस ब्रेसलेट.",
       metal: "१८ कॅरेट पांढरे सोने",
       gemstone: "हिरे",
-      image: "/images/product-23.png",
+      image: "/images/product-23.webp",
       aspect: "wide",
     },
     {
@@ -315,7 +315,7 @@ export const SITE_CONFIG = {
       description: "लग्नासाठी खास डिझाईन केलेला भव्य सोन्याचा चोकर.",
       metal: "२२ कॅरेट पिवळे सोने",
       gemstone: "माणिक आणि मोती",
-      image: "/images/product-24.png",
+      image: "/images/product-24.webp",
       aspect: "portrait",
     },
     {
@@ -327,7 +327,7 @@ export const SITE_CONFIG = {
       description: "आकर्षक निळा नीलम आणि हिऱ्यांनी जडवलेले पेंडंट.",
       metal: "१८ कॅरेट पांढरे सोने",
       gemstone: "नीलम आणि हिरे",
-      image: "/images/product-25.png",
+      image: "/images/product-25.webp",
       aspect: "tall",
     }
   ] as ProductItem[]
