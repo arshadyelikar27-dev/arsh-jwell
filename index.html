@@ -1,25 +1,53 @@
 <!doctype html>
-<html lang="en" class="scroll-smooth">
+<html lang="mr" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Maknikar Jweller</title>
-    <meta name="description" content="Discover exquisite handcrafted fine jewellery, diamond solitaires, heritage gold, and bespoke masterpieces at V B Makneekar boutique atelier." />
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@200;300;400;500;600&display=swap" rel="stylesheet">
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+    <!-- Primary SEO -->
+    <title>माकणीकर ज्वेलर्स लातूर | Maknikar Jewellers Latur — Gold & Diamond Jewellery</title>
+    <meta name="description" content="Maknikar Jewellers Latur — १९७० पासून उत्कृष्ट सोने व हिऱ्यांचे दागिने. Gold Jewellery, Diamond Jewellery & Bridal Collections in Latur, Maharashtra." />
+    <meta name="keywords" content="Maknikar Jewellers Latur, Gold Jewellery Latur, Diamond Jewellery Latur, माकणीकर ज्वेलर्स, सोन्याचे दागिने लातूर, हिऱ्यांचे दागिने" />
+    <meta name="author" content="V B Maknikar Jewellers" />
+    <meta name="theme-color" content="#1A0A00" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Maknikar Jewellers Latur | Gold & Diamond Jewellery" />
+    <meta property="og:description" content="१९७० पासून उत्कृष्ट सोने व हिऱ्यांचे दागिने. Bhusar Line, Latur." />
+    <meta property="og:image" content="/images/vb_malgeekar_logo.webp" />
+    <meta property="og:locale" content="mr_IN" />
+
+    <!-- Preconnect to Google Fonts BEFORE stylesheet request -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Fonts: only the weights we actually use, display=swap prevents FOIT -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;800&family=Mukta:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="/images/vb_malgeekar_logo.webp" />
     <link rel="apple-touch-icon" href="/images/vb_malgeekar_logo.webp" />
-    
-    <!-- Preload critical assets -->
-    <link rel="preload" href="/images/vb_malgeekar_logo.webp" as="image" />
-    <link rel="preload" href="/Jwell.mp4" as="video" type="video/mp4" />
+    <link rel="manifest" href="/manifest.json" />
+
+    <!-- Preload critical above-the-fold assets -->
+    <link rel="preload" href="/images/vb_malgeekar_logo.webp" as="image" fetchpriority="high" />
+    <!-- Do NOT preload the video — it blocks the LCP. Let it load lazily. -->
+
+    <!-- Critical inline style to prevent white flash -->
+    <style>
+      html { background: #FFFFFF; }
+      body { margin: 0; padding: 0; font-family: 'Plus Jakarta Sans', system-ui, sans-serif; }
+      #root { min-height: 100dvh; }
+    </style>
   </head>
-  <body class="bg-charcoal-900 text-ivory-100 antialiased selection:bg-royal selection:text-ivory-50 overflow-x-hidden">
+  <body class="antialiased overflow-x-hidden">
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

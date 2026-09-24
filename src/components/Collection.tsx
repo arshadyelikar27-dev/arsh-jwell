@@ -182,7 +182,7 @@ const SECTIONS: JewellerySection[] = [
 
 // ─── Product Card ─────────────────────────────────────────────────────────────
 
-const ProductCard: React.FC<{ item: ProductItem; delay: number }> = ({ item, delay }) => {
+const ProductCard: React.FC<{ item: ProductItem; delay: number }> = React.memo(({ item, delay }) => {
   const [hovered, setHovered] = React.useState(false);
 
   return (
@@ -213,10 +213,12 @@ const ProductCard: React.FC<{ item: ProductItem; delay: number }> = ({ item, del
           src={item.image}
           alt={item.label}
           loading="lazy"
+          decoding="async"
           style={{
             width: '100%',
             height: '100%',
             objectFit: 'cover',
+            willChange: 'transform',
             transform: hovered ? 'scale(1.06)' : 'scale(1)',
             transition: 'transform 0.7s cubic-bezier(0.16, 1, 0.3, 1)',
           }}
@@ -258,11 +260,12 @@ const ProductCard: React.FC<{ item: ProductItem; delay: number }> = ({ item, del
       </div>
     </motion.div>
   );
-};
+});
+ProductCard.displayName = 'ProductCard';
 
 // ─── Section Row ──────────────────────────────────────────────────────────────
 
-const SectionRow: React.FC<{ section: JewellerySection; sectionIndex: number }> = ({ section, sectionIndex }) => (
+const SectionRow: React.FC<{ section: JewellerySection; sectionIndex: number }> = React.memo(({ section, sectionIndex }) => (
   <motion.div
     initial={{ opacity: 0, y: 30 }}
     whileInView={{ opacity: 1, y: 0 }}
@@ -294,7 +297,7 @@ const SectionRow: React.FC<{ section: JewellerySection; sectionIndex: number }> 
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6, delay: 0.16 }}
-        style={{ fontSize: '13px', color: '#C9A24B', letterSpacing: '0.2em', margin: 0, fontWeight: 500 }}
+        style={{ fontSize: '13px', color: '#C9A24B', letterSpacing: '0.12em', margin: 0, fontWeight: 600, fontFamily: 'Mukta, sans-serif' }}
       >
         {section.titleMr}
       </motion.p>
@@ -328,13 +331,15 @@ const SectionRow: React.FC<{ section: JewellerySection; sectionIndex: number }> 
       ))}
     </div>
   </motion.div>
-);
+));
+SectionRow.displayName = 'SectionRow';
 
 // ─── Main Collection ──────────────────────────────────────────────────────────
 
 export const Collection: React.FC = () => (
   <section
     id="collection"
+    data-mr
     className="relative overflow-hidden"
     style={{ background: '#FAFAFA', padding: '80px 0 100px' }}
   >
@@ -373,10 +378,11 @@ export const Collection: React.FC = () => (
             <span
               style={{
                 fontSize: '13px',
-                letterSpacing: '0.3em',
+                letterSpacing: '0.2em',
                 textTransform: 'uppercase',
                 color: '#C9A24B',
                 fontWeight: 800,
+                fontFamily: 'Mukta, sans-serif',
               }}
             >
               निवडक संग्रह
@@ -384,10 +390,10 @@ export const Collection: React.FC = () => (
           </div>
           <h2
             style={{
-              fontFamily: 'Cormorant Garamond, serif',
+              fontFamily: 'Mukta, sans-serif',
               fontSize: 'clamp(2rem, 4vw, 3.5rem)',
               color: '#1A0A00',
-              fontWeight: 300,
+              fontWeight: 700,
               margin: 0,
             }}
           >
@@ -396,11 +402,12 @@ export const Collection: React.FC = () => (
         </div>
         <p
           style={{
-            fontSize: '13px',
+            fontSize: '14px',
             color: '#5C3D2E',
             maxWidth: '380px',
-            lineHeight: 1.7,
-            fontWeight: 300,
+            lineHeight: 1.8,
+            fontWeight: 400,
+            fontFamily: 'Mukta, sans-serif',
           }}
         >
           अनुभवी कारागिरांनी मेहनतीने घडवलेले दागिने, पिढ्यानपिढ्यांना जपलेली कला.
@@ -452,12 +459,11 @@ export const Collection: React.FC = () => (
         </div>
         <p
           style={{
-            fontFamily: 'Cormorant Garamond, serif',
-            fontSize: 'clamp(1.1rem, 2.5vw, 1.6rem)',
+            fontFamily: 'Mukta, sans-serif',
+            fontSize: 'clamp(1.1rem, 2.5vw, 1.5rem)',
             color: '#3D2B1F',
-            fontWeight: 400,
+            fontWeight: 600,
             margin: 0,
-            fontStyle: 'italic',
           }}
         >
           "प्रत्येक दागिना एक अमर कथा सांगतो."

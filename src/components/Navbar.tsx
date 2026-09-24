@@ -9,6 +9,7 @@ export const Navbar: React.FC = () => {
   const navLinks = [
     { name: 'Home', href: '#hero' },
     { name: 'Collection', href: '#collection' },
+    { name: 'About', href: '#about' },
     { name: 'Contact', href: '#footer' },
   ];
 
@@ -41,6 +42,7 @@ export const Navbar: React.FC = () => {
     <>
       {/* ── Combined Fixed Header (strip + nav as one block, no blur/animation) ── */}
       <div
+        data-mr
         className="fixed top-0 left-0 w-full z-[100] bg-white border-b-2 border-[#C9A24B]/35"
       >
         {/* Top Info Strip */}
@@ -95,7 +97,8 @@ export const Navbar: React.FC = () => {
           {/* Inquire Button */}
           <button
             onClick={handleWhatsApp}
-            className="hidden sm:flex items-center gap-1.5 bg-[#6B2D8B] text-white px-5 py-2.5 rounded-full text-[11px] font-bold tracking-[0.2em] uppercase cursor-pointer transition-colors hover:bg-[#9B59C4]"
+            style={{ fontFamily: 'Mukta, sans-serif' }}
+            className="hidden sm:flex items-center gap-1.5 bg-[#6B2D8B] text-white px-5 py-2.5 rounded-full text-[13px] font-bold tracking-[0.15em] uppercase cursor-pointer transition-colors hover:bg-[#9B59C4]"
           >
             <MessageSquare size={13} />
             चौकशी करा
@@ -132,7 +135,8 @@ export const Navbar: React.FC = () => {
                 ))}
                 <button
                   onClick={() => { setMobileMenuOpen(false); handleWhatsApp(); }}
-                  className="mt-2 bg-[#6B2D8B] text-white rounded-full px-5 py-3 text-[11px] tracking-[0.2em] uppercase font-bold cursor-pointer hover:bg-[#9B59C4] transition-colors"
+                  style={{ fontFamily: 'Mukta, sans-serif' }}
+                  className="mt-2 bg-[#6B2D8B] text-white rounded-full px-5 py-3 text-[13px] tracking-[0.12em] uppercase font-bold cursor-pointer hover:bg-[#9B59C4] transition-colors"
                 >
                   व्हॉट्सॲपवर चौकशी करा
                 </button>

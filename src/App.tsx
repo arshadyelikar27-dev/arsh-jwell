@@ -4,6 +4,7 @@ import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { LiveRates } from './components/LiveRates';
 import { Collection } from './components/Collection';
+import { About } from './components/About';
 import { Footer } from './components/Footer';
 import { NoiseOverlay } from './components/NoiseOverlay';
 import { useSmoothScroll } from './hooks/useSmoothScroll';
@@ -34,7 +35,10 @@ export const App: React.FC = () => {
       {/* 3. Collection with Filters */}
       <Collection />
 
-      {/* 3. Minimal Dark Luxury Footer */}
+      {/* 4. About Section */}
+      <About />
+
+      {/* 5. Minimal Dark Luxury Footer */}
       <Footer />
 
       {/* WhatsApp Floating Toggle */}

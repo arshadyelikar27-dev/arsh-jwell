@@ -52,8 +52,8 @@ export const Hero: React.FC = () => {
         >
           <div className="w-16 h-[2px]" style={{ background: '#C9A24B' }} />
           <span
-            className="font-sans uppercase font-extrabold"
-            style={{ color: '#C9A24B', fontSize: '15px', letterSpacing: '0.2em' }}
+            className="uppercase font-extrabold"
+            style={{ color: '#C9A24B', fontSize: '13px', letterSpacing: '0.22em', fontFamily: 'Mukta, sans-serif' }}
           >
             {SITE_CONFIG.brandName} &bull; उत्कृष्ट दागिनेकार
           </span>
@@ -65,11 +65,13 @@ export const Hero: React.FC = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-          className="font-serif font-light tracking-tight leading-tight mb-6"
+          className="tracking-tight leading-tight mb-6"
           style={{
+            fontFamily: 'Mukta, sans-serif',
+            fontWeight: 700,
             color: '#FFFFFF',
             fontSize: 'clamp(2rem, 6vw, 5.5rem)',
-            lineHeight: 1.1,
+            lineHeight: 1.15,
             maxWidth: '900px',
             textShadow: '0 2px 20px rgba(0,0,0,0.4)',
           }}
@@ -82,8 +84,8 @@ export const Hero: React.FC = () => {
           initial={{ opacity: 0, y: 25 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.7 }}
-          className="font-sans font-light tracking-wide leading-relaxed px-2 max-w-xl"
-          style={{ color: 'rgba(255,255,255,0.90)', fontSize: '1rem', textShadow: '0 1px 8px rgba(0,0,0,0.3)' }}
+          className="tracking-wide leading-relaxed px-2 max-w-xl"
+          style={{ fontFamily: 'Mukta, sans-serif', fontWeight: 400, color: 'rgba(255,255,255,0.90)', fontSize: '1.05rem', textShadow: '0 1px 8px rgba(0,0,0,0.3)', lineHeight: 1.8 }}
         >
           {SITE_CONFIG.subTagline}
         </motion.p>
@@ -94,8 +96,9 @@ export const Hero: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.9 }}
           onClick={handleScrollToCollection}
-          className="mt-10 px-8 py-3 rounded-full font-sans text-xs font-semibold tracking-[0.25em] uppercase transition-all duration-300"
+          className="mt-10 px-8 py-3 rounded-full text-sm font-bold tracking-[0.2em] uppercase transition-all duration-300"
           style={{
+            fontFamily: 'Mukta, sans-serif',
             background: '#6B2D8B',
             color: '#FFFFFF',
             boxShadow: '0 4px 20px rgba(107,45,139,0.30)',
@@ -115,7 +118,7 @@ export const Hero: React.FC = () => {
         className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center space-y-2 cursor-pointer"
         onClick={handleScrollToCollection}
       >
-        <span className="font-sans text-[9px] tracking-[0.3em] uppercase" style={{ color: '#C9A24B' }}>
+        <span className="text-[9px] tracking-[0.2em] uppercase" style={{ color: '#C9A24B', fontFamily: 'Mukta, sans-serif' }}>
           शोधा
         </span>
         <div className="w-[1px] h-8 relative overflow-hidden" style={{ background: 'rgba(201,162,75,0.25)' }}>

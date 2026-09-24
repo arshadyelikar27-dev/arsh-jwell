@@ -2,28 +2,84 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ══════════════════════════════════════════════════════
+   @font-face MUST be at top level — NOT inside @layer
+   ══════════════════════════════════════════════════════ */
+
+/* Mukta unicode-range override — auto-applies to Devanagari glyphs
+   in Plus Jakarta Sans / Cormorant Garamond contexts              */
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  src: local('Mukta'), url('https://fonts.gstatic.com/s/mukta/v13/iJWHBXyXfDDVXbEmjlantlQ.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0900-097F, U+200C-200D, U+20A8, U+2212, U+A8E0-A8F7, U+FB1D-FB4F;
+}
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  src: local('Mukta'), url('https://fonts.gstatic.com/s/mukta/v13/iJWBBXyXfDDVXbnIrDyw.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0900-097F, U+200C-200D, U+20A8, U+2212, U+A8E0-A8F7, U+FB1D-FB4F;
+}
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  src: local('Mukta'), url('https://fonts.gstatic.com/s/mukta/v13/iJWBBXyXfDDVXbn4rTyw.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0900-097F, U+200C-200D, U+20A8, U+2212, U+A8E0-A8F7, U+FB1D-FB4F;
+}
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  src: local('Mukta'), url('https://fonts.gstatic.com/s/mukta/v13/iJWBBXyXfDDVXbnQrDyw.woff2') format('woff2');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0900-097F, U+200C-200D, U+20A8, U+2212, U+A8E0-A8F7, U+FB1D-FB4F;
+}
+@font-face {
+  font-family: 'Cormorant Garamond';
+  src: local('Mukta'), url('https://fonts.gstatic.com/s/mukta/v13/iJWHBXyXfDDVXbEmjlantlQ.woff2') format('woff2');
+  font-weight: 300 400;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0900-097F, U+200C-200D, U+20A8, U+2212, U+A8E0-A8F7, U+FB1D-FB4F;
+}
+@font-face {
+  font-family: 'Cormorant Garamond';
+  src: local('Mukta'), url('https://fonts.gstatic.com/s/mukta/v13/iJWBBXyXfDDVXbn4rTyw.woff2') format('woff2');
+  font-weight: 500 700;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0900-097F, U+200C-200D, U+20A8, U+2212, U+A8E0-A8F7, U+FB1D-FB4F;
+}
+
+/* ══════════════════════════════════════════════════════
+   Base Layer
+   ══════════════════════════════════════════════════════ */
 @layer base {
   :root {
-    /* Light ivory/cream luxury background — inspired by krishnajewellers.com */
     --color-bg-primary:   #F8F4EE;
     --color-bg-secondary: #F2EDE4;
     --color-bg-card:      #FFFFFF;
     --color-text-primary: #3D2B1F;
     --color-text-muted:   #7A6555;
-    /* Gold */
-    --color-gold: #C9A24B;
-    /* Logo Royal Purple — kept as accent */
-    --color-royal: #6B2D8B;
-    --color-royal-light: #9B59C4;
-    --color-royal-glow: rgba(107, 45, 139, 0.18);
-    /* Dark strip (top bar / footer) */
-    --color-dark-strip: #3D2B1F;
+    --color-gold:         #C9A24B;
+    --color-royal:        #6B2D8B;
+    --color-royal-light:  #9B59C4;
+    --color-royal-glow:   rgba(107, 45, 139, 0.18);
+    --color-dark-strip:   #3D2B1F;
   }
 
   html {
     scroll-behavior: smooth;
     background-color: #FFFFFF;
     color: #3D2B1F;
+    /* Prevent horizontal overflow on mobile */
+    overflow-x: hidden;
   }
 
   body {
@@ -32,108 +88,135 @@
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    /* Improve touch scrolling on iOS */
+    -webkit-overflow-scrolling: touch;
   }
 
-  /* Custom selection — Royal Purple */
+  /* Improve tap targets on mobile */
+  a, button, [role="button"] {
+    touch-action: manipulation;
+  }
+
+  /* Prevent text size adjustments on mobile orientation change */
+  * {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  /* Custom selection */
   ::selection {
     background-color: #6B2D8B;
     color: #F8F4EE;
   }
 
   /* Custom scrollbar */
-  ::-webkit-scrollbar {
-    width: 6px;
-  }
-  ::-webkit-scrollbar-track {
-    background: #FFFFFF;
-  }
-  ::-webkit-scrollbar-thumb {
-    background: #C9A24B;
-    border-radius: 3px;
-  }
-  ::-webkit-scrollbar-thumb:hover {
-    background: #6B2D8B;
-  }
+  ::-webkit-scrollbar        { width: 6px; }
+  ::-webkit-scrollbar-track  { background: #FFFFFF; }
+  ::-webkit-scrollbar-thumb  { background: #C9A24B; border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: #6B2D8B; }
 }
 
-/* Lenis smooth scrolling rules */
-html.lenis, html.lenis body {
+/* ══════════════════════════════════════════════════════
+   Lenis smooth scroll
+   ══════════════════════════════════════════════════════ */
+html.lenis,
+html.lenis body {
   height: auto;
 }
-
 .lenis.lenis-smooth {
   scroll-behavior: auto !important;
 }
-
 .lenis.lenis-smooth [data-lenis-prevent] {
   overscroll-behavior: contain;
 }
-
 .lenis.lenis-stopped {
   overflow: hidden;
 }
-
 .lenis.lenis-scrolling iframe {
   pointer-events: none;
 }
 
-/* Gold Gradient & Text Utilities */
+/* ══════════════════════════════════════════════════════
+   Mukta / Marathi utility classes
+   ══════════════════════════════════════════════════════ */
+.font-marathi,
+.font-marathi *,
+[data-mr],
+[data-mr] *,
+:lang(mr),
+:lang(mr) * {
+  font-family: 'Mukta', sans-serif !important;
+}
+
+/* ══════════════════════════════════════════════════════
+   GPU-accelerated animation helpers
+   ══════════════════════════════════════════════════════ */
+.will-animate {
+  will-change: transform, opacity;
+}
+/* Applied by Framer Motion motion elements that use transform */
+[data-framer-motion] {
+  will-change: transform;
+}
+
+/* ══════════════════════════════════════════════════════
+   Gold Gradient & Text Utilities
+   ══════════════════════════════════════════════════════ */
 .gold-gradient-text {
   background: linear-gradient(135deg, #F5F0E6 0%, #EAD79B 30%, #C9A24B 60%, #DFC07A 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-
 .gold-gradient-subtle {
   background: linear-gradient(180deg, rgba(201, 162, 75, 0.15) 0%, rgba(201, 162, 75, 0) 100%);
 }
-
 .gold-border-glow {
   border: 1px solid rgba(201, 162, 75, 0.25);
   box-shadow: 0 0 25px -5px rgba(201, 162, 75, 0.08);
+  transition: border-color 0.3s, box-shadow 0.3s;
 }
-
 .gold-border-glow:hover {
   border-color: rgba(201, 162, 75, 0.5);
   box-shadow: 0 0 35px 0px rgba(201, 162, 75, 0.18);
 }
 
-/* Royal Purple Utilities — Logo brand integration */
+/* ══════════════════════════════════════════════════════
+   Royal Purple Utilities
+   ══════════════════════════════════════════════════════ */
 .royal-gradient-text {
   background: linear-gradient(135deg, #9B59C4 0%, #6B2D8B 50%, #4A1D63 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-
 .royal-glow {
   box-shadow: 0 0 40px -8px rgba(107, 45, 139, 0.35);
 }
-
 .royal-border-glow {
   border: 1px solid rgba(107, 45, 139, 0.30);
   box-shadow: 0 0 25px -5px rgba(107, 45, 139, 0.12);
+  transition: border-color 0.3s, box-shadow 0.3s;
 }
-
 .royal-border-glow:hover {
   border-color: rgba(107, 45, 139, 0.55);
   box-shadow: 0 0 40px 0px rgba(107, 45, 139, 0.22);
 }
 
-/* Gold + Purple dual-tone ambient background */
+/* Gold + Purple ambient bg */
 .dual-tone-glow {
   background:
     radial-gradient(ellipse at 30% 50%, rgba(201, 162, 75, 0.06) 0%, transparent 60%),
     radial-gradient(ellipse at 70% 50%, rgba(107, 45, 139, 0.06) 0%, transparent 60%);
 }
 
-/* Shimmer Sweep Animation */
+/* ══════════════════════════════════════════════════════
+   Shimmer Sweep Animation
+   ══════════════════════════════════════════════════════ */
 .shimmer-sweep-wrapper {
   position: relative;
   overflow: hidden;
 }
-
 .shimmer-sweep-wrapper::after {
   content: '';
   position: absolute;
@@ -154,27 +237,25 @@ html.lenis, html.lenis body {
   transition: opacity 0.3s ease;
   pointer-events: none;
 }
-
 .shimmer-sweep-wrapper:hover::after {
   opacity: 1;
   animation: shimmerSweep 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
-
 @keyframes shimmerSweep {
-  0% {
-    left: -100%;
-  }
-  100% {
-    left: 200%;
-  }
+  0%   { left: -100%; }
+  100% { left: 200%; }
 }
 
-/* Noise overlay for tactile film aesthetic */
+/* ══════════════════════════════════════════════════════
+   Noise overlay
+   ══════════════════════════════════════════════════════ */
 .bg-noise {
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.035'/%3E%3C/svg%3E");
 }
 
-/* Hide default cursor on desktop when custom cursor is active */
+/* ══════════════════════════════════════════════════════
+   Custom cursor — desktop only
+   ══════════════════════════════════════════════════════ */
 @media (pointer: fine) {
   body.custom-cursor-active,
   body.custom-cursor-active a,
@@ -184,7 +265,24 @@ html.lenis, html.lenis body {
   }
 }
 
-/* Reduced motion preference */
+/* ══════════════════════════════════════════════════════
+   Mobile responsiveness helpers
+   ══════════════════════════════════════════════════════ */
+@media (max-width: 640px) {
+  /* Prevent overflow on small screens */
+  section, footer, header, nav {
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+  /* Improve readability of small Marathi text on mobile */
+  [data-mr] {
+    line-height: 1.7 !important;
+  }
+}
+
+/* ══════════════════════════════════════════════════════
+   Reduced motion preference
+   ══════════════════════════════════════════════════════ */
 @media (prefers-reduced-motion: reduce) {
   *, ::before, ::after {
     animation-duration: 0.01ms !important;

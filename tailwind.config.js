@@ -56,6 +56,7 @@ export default {
         serif:   ['"Cormorant Garamond"', 'Playfair Display', 'Georgia', 'serif'],
         display: ['"Playfair Display"', 'Cormorant Garamond', 'serif'],
         sans:    ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
+        marathi: ['Mukta', 'sans-serif'],
       },
       letterSpacing: {
         widest: '0.25em',

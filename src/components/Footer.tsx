@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowUp, MessageSquare, MapPin, Phone, Mail } from 'lucide-react';
+import { ArrowUp, MessageSquare, MapPin, Phone, Mail, Instagram } from 'lucide-react';
 import { SITE_CONFIG } from '../config/siteContent';
 
 export const Footer: React.FC = () => {
@@ -19,6 +19,7 @@ export const Footer: React.FC = () => {
   return (
     <footer
       id="footer"
+      data-mr
       style={{
         background: '#FFFFFF',
         borderTop: '1px solid rgba(201,162,75,0.25)',
@@ -50,9 +51,59 @@ export const Footer: React.FC = () => {
               alt="व्ही बी माकणीकर"
               style={{ height: '52px', width: 'auto', objectFit: 'contain', display: 'block', marginBottom: '8px' }}
             />
-            <span style={{ fontSize: '13px', letterSpacing: '0.25em', textTransform: 'uppercase', color: '#C9A24B', fontWeight: 800 }}>
+            <span style={{ fontSize: '13px', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#C9A24B', fontWeight: 800, fontFamily: 'Mukta, sans-serif' }}>
               उत्कृष्ट दागिनेकार &bull; स्था. १९६६
             </span>
+          </div>
+
+          {/* Social Links */}
+          <div style={{ display: 'flex', gap: '16px' }}>
+            <a
+              href="https://wa.me/917410105757?text=Hello%20Maknikar%20Jewellers,%20I%20would%20like%20to%20inquire%20about%20your%20fine%20jewellery%20collection."
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                width: '44px', height: '44px', borderRadius: '50%',
+                background: 'rgba(201,162,75,0.06)', border: '1px solid rgba(201,162,75,0.3)',
+                color: '#C9A24B', transition: 'all 0.3s ease'
+              }}
+              onMouseEnter={e => {
+                e.currentTarget.style.background = '#C9A24B';
+                e.currentTarget.style.color = '#FFFFFF';
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.background = 'rgba(201,162,75,0.06)';
+                e.currentTarget.style.color = '#C9A24B';
+              }}
+              aria-label="WhatsApp"
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+              </svg>
+            </a>
+            <a
+              href="https://www.instagram.com/maknikar_jewellers?stkn=MWc2N3I4dnltNzBidQ=="
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                width: '44px', height: '44px', borderRadius: '50%',
+                background: 'rgba(201,162,75,0.06)', border: '1px solid rgba(201,162,75,0.3)',
+                color: '#C9A24B', transition: 'all 0.3s ease'
+              }}
+              onMouseEnter={e => {
+                e.currentTarget.style.background = '#C9A24B';
+                e.currentTarget.style.color = '#FFFFFF';
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.background = 'rgba(201,162,75,0.06)';
+                e.currentTarget.style.color = '#C9A24B';
+              }}
+              aria-label="Instagram"
+            >
+              <Instagram size={20} />
+            </a>
           </div>
         </div>
 
@@ -68,7 +119,7 @@ export const Footer: React.FC = () => {
         >
           {/* Creations */}
           <div>
-            <h4 style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: '16px', color: '#1A0A00', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '20px', fontWeight: 400 }}>
+            <h4 style={{ fontFamily: 'Mukta, sans-serif', fontSize: '15px', color: '#1A0A00', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '20px', fontWeight: 700 }}>
               संग्रह
             </h4>
             <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '10px' }}>
@@ -87,7 +138,7 @@ export const Footer: React.FC = () => {
 
           {/* Visit Us */}
           <div>
-            <h4 style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: '16px', color: '#1A0A00', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '20px', fontWeight: 400 }}>
+            <h4 style={{ fontFamily: 'Mukta, sans-serif', fontSize: '15px', color: '#1A0A00', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '20px', fontWeight: 700 }}>
               आमच्याकडे या
             </h4>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
@@ -131,10 +182,10 @@ export const Footer: React.FC = () => {
             }}
           >
             <div>
-              <p style={{ fontSize: '13px', letterSpacing: '0.25em', textTransform: 'uppercase', color: '#C9A24B', fontWeight: 800, marginBottom: '8px' }}>
+              <p style={{ fontSize: '13px', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#C9A24B', fontWeight: 800, marginBottom: '8px', fontFamily: 'Mukta, sans-serif' }}>
                 विशेष चौकशी
               </p>
-              <p style={{ fontSize: '12px', color: '#5C3D2E', lineHeight: 1.6, margin: 0 }}>
+              <p style={{ fontSize: '13px', color: '#5C3D2E', lineHeight: 1.7, margin: 0, fontFamily: 'Mukta, sans-serif' }}>
                 आमच्या तज्ज सोनारांशी थेट संपर्क साधा आणि तुमच्या अनुरूप हस्तनिर्मित दागिन्यांसाठी विचारना करा.
               </p>
             </div>
@@ -211,10 +262,11 @@ export const Footer: React.FC = () => {
           borderTop: '1px solid rgba(201,162,75,0.12)',
           padding: '12px',
           textAlign: 'center',
-          fontSize: '10px',
-          letterSpacing: '0.25em',
+          fontSize: '12px',
+          letterSpacing: '0.15em',
           textTransform: 'uppercase',
-          color: 'rgba(92,61,46,0.45)',
+          color: 'rgba(92,61,46,0.55)',
+          fontFamily: 'Mukta, sans-serif',
         }}
       >
         प्रेमाने घडवलेले, लातूर, महाराष्ट्र
